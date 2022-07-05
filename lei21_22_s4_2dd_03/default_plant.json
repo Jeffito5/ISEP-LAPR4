@@ -1,0 +1,113 @@
+{
+	"Warehouse": "Warehouse Default",
+	"Length": 900,
+	"Width": 500,
+	"Square": 50,
+	"Unit": "m",
+	"Aisles":[ 
+		{ 
+			"Id":1, 
+			"begin": {"lsquare":4, "wsquare":1}, 
+			"end": {"lsquare":12, "wsquare":1}, 
+			"depth":{"lsquare":12, "wsquare":1}, 
+			"accessibility":"w+", 
+			"rows":[ 
+				{
+					"Id":1, 
+					"begin": {"lsquare":5, "wsquare":1}, 
+					"end": {"lsquare":7, "wsquare":1}, 
+					"shelves":2
+				},
+				{
+					"Id":2, 
+					"begin": {"lsquare":8, "wsquare":1}, 
+					"end": {"lsquare":12, "wsquare":1},
+					"shelves":5
+				},
+				{
+					"Id":3, 
+					"begin": {"lsquare":13, "wsquare":1}, 
+					"end": {"lsquare":16, "wsquare":1}, 
+					"shelves":1
+				}
+			]
+		},
+		{ 
+			"Id":2, 
+			"begin": {"lsquare":5, "wsquare":8}, 
+			"end": {"lsquare":16, "wsquare":10}, 
+			"depth":{"lsquare":14, "wsquare":9}, 
+			"accessibility":"w-", 
+			"rows":[ 
+				{
+					"Id":1, 
+					"begin": {"lsquare":5, "wsquare":8}, 
+					"end": {"lsquare":9, "wsquare":8}, 
+					"shelves":7
+				},
+				{
+					"Id":2, 
+					"begin": {"lsquare":10, "wsquare":8}, 
+					"end": {"lsquare":11, "wsquare":8}, 
+					"shelves":2
+				},
+				{
+					"Id":3, 
+					"begin": {"lsquare":12, "wsquare":8}, 
+					"end": {"lsquare":12, "wsquare":8}, 
+					"shelves":5
+				},
+				{
+					"Id":4, 
+					"begin": {"lsquare":13, "wsquare":8}, 
+					"end": {"lsquare":17, "wsquare":8}, 
+					"shelves":6
+				}
+			]
+		},
+		{ 
+			"Id":3, 
+			"begin": {"lsquare":5, "wsquare":11}, 
+			"end": {"lsquare":17, "wsquare":12}, 
+			"depth":{"lsquare":16, "wsquare":10}, 
+			"accessibility":"w+", 
+			"rows":[ 
+				{
+					"Id":1, 
+					"begin": {"lsquare":6, "wsquare":11}, 
+					"end": {"lsquare":11, "wsquare":11}, 
+					"shelves":5
+				},
+				{
+					"Id":2, 
+					"begin": {"lsquare":12, "wsquare":11}, 
+					"end": {"lsquare":18, "wsquare":11}, 
+					"shelves":10
+				}
+			]
+		}
+	],
+	"AGVDocks":[ 
+		{
+			"Id":"D1", 
+			"begin": {"lsquare":1, "wsquare":3}, 
+			"end": {"lsquare":1, "wsquare":4}, 
+			"depth":{"lsquare":1, "wsquare":3}, 
+			"accessibility":"l+"
+		},
+		{
+			"Id":"D2", 
+			"begin": {"lsquare":1, "wsquare":5}, 
+			"end": {"lsquare":1, "wsquare":4}, 
+			"depth":{"lsquare":1, "wsquare":5}, 
+			"accessibility":"l+"
+		},
+		{
+			"Id":"D3", 
+			"begin": {"lsquare":1, "wsquare":10}, 
+			"end": {"lsquare":1, "wsquare":12}, 
+			"depth":{"lsquare":1, "wsquare":11}, 
+			"accessibility":"l+"
+		}
+	]
+}

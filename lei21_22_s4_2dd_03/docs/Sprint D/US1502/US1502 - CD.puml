@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+class CheckOrderStatusUI
+
+class TcpCustomerClient{
+--Methods--
++ run()
+}
+
+
+class TcpOrderServer{
+--Threads--
+  TcpOSThreadAddProductSC(socket)
+--Methods--
++ run()
+}
+
+class CheckOrderStatusController{
+--Methods--
++ addProductToShoppingCart(productId,quantity,cutomerEmail)
++ getCatalog()
++ getProduct(productId)
++ findCustomerByEmail(cutomerEmail)
+}
+
+class OrderRepository{
+--Methods--
++ findAll()
++ findByCode(orderId)
+}
+
+class CustomerRepository{
+--Methods--
++ findByEmail()
++ save(customer)
+}
+
+class Customer{
+..Attributes..
+-email
+-shopping cart
+}
+
+class Order{
+..Attributes..
+- orderItems
+}
+
+
+
+CheckOrderStatusUI ..> TcpCustomerClient
+TcpOrderServer ..> CheckOrderStatusController
+
+TcpCustomerClient ..> TcpOrderServer
+
+CheckOrderStatusController..>OrderRepository
+CheckOrderStatusController..>CustomerRepository
+
+OrderRepository..> Order
+
+CustomerRepository..> Customer
+
+
+@enduml

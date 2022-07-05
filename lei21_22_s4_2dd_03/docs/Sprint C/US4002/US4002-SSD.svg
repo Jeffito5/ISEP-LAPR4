@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="227px" preserveAspectRatio="none" style="width:795px;height:227px;background:#FFFFFF;" version="1.1" viewBox="0 0 795 227" width="795px" zoomAndPan="magnify"><defs><filter height="300%" id="fs9wto9r9veqf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="122.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="76.5" y="51.6094"/><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="748.5" y="73.9609"/><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="748.5" y="134.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="81" x2="81" y1="41.6094" y2="183.0156"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="753.5" x2="753.5" y1="41.6094" y2="183.0156"/><rect fill="#FEFECE" filter="url(#fs9wto9r9veqf)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="149" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="12" y="26.5332">WarehouseEmployee</text><rect fill="#FEFECE" filter="url(#fs9wto9r9veqf)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="149" x="5" y="182.0156"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="12" y="203.5488">WarehouseEmployee</text><rect fill="#FEFECE" filter="url(#fs9wto9r9veqf)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="721.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="728.5" y="26.5332">System</text><rect fill="#FEFECE" filter="url(#fs9wto9r9veqf)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="721.5" y="182.0156"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="728.5" y="203.5488">System</text><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="122.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="76.5" y="51.6094"/><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="748.5" y="73.9609"/><rect fill="#FFFFFF" filter="url(#fs9wto9r9veqf)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="748.5" y="134.6641"/><polygon fill="#A80036" points="736.5,69.9609,746.5,73.9609,736.5,77.9609,740.5,73.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="86.5" x2="742.5" y1="73.9609" y2="73.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="93.5" y="69.1045">1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="351" x="108.5" y="69.1045">Starts the process of assigning automatically tasks to AGVs</text><polygon fill="#A80036" points="97.5,100.3125,87.5,104.3125,97.5,108.3125,93.5,104.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="91.5" x2="752.5" y1="104.3125" y2="104.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="103.5" y="99.4561">1.1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="526" x="125.5" y="99.4561">Asks the warehouse employee if he wants the algorithm to assign orders periodically or not</text><polygon fill="#A80036" points="736.5,130.6641,746.5,134.6641,736.5,138.6641,740.5,134.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="86.5" x2="742.5" y1="134.6641" y2="134.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="93.5" y="129.8076">2.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="392" x="108.5" y="129.8076">Chooses if the algorithm is going to assign orders periodically or not</text><polygon fill="#A80036" points="97.5,161.0156,87.5,165.0156,97.5,169.0156,93.5,165.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="91.5" x2="752.5" y1="165.0156" y2="165.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="103.5" y="160.1592">2.1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="616" x="125.5" y="160.1592">Assigns the tasks automatically, shows the ones assigned and informs about the success of the operation</text><!--MD5=[e85a1eb1515a4fc58f958fdd619d390b]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of assigning automatically tasks to AGVs
+activate System
+System - -> WarehouseEmployee: **1.1** Asks the warehouse employee if he wants the algorithm to assign orders periodically or not
+deactivate System
+
+WarehouseEmployee -> System: **2.** Chooses if the algorithm is going to assign orders periodically or not
+activate System
+System - -> WarehouseEmployee: **2.1** Assigns the tasks automatically, shows the ones assigned and informs about the success of the operation
+deactivate System
+
+@enduml
+
+@startuml
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of assigning automatically tasks to AGVs
+activate System
+System - -> WarehouseEmployee: **1.1** Asks the warehouse employee if he wants the algorithm to assign orders periodically or not
+deactivate System
+
+WarehouseEmployee -> System: **2.** Chooses if the algorithm is going to assign orders periodically or not
+activate System
+System - -> WarehouseEmployee: **2.1** Assigns the tasks automatically, shows the ones assigned and informs about the success of the operation
+deactivate System
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

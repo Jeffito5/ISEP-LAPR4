@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ChangeStatusUI
+
+class TcpAGVManagerClient{
+--Methods--
++ run()
+}
+
+
+class TcpAGVManagerServer{
+--Threads--
+  TcpAgvManagerThreadMenu(socket)
+--Methods--
++ run()
+}
+
+class ChangeStatusController{
+--Methods--
++ getAGVByIdentifier(agvIdentifier)
++ updateStatusForAGV()
+}
+
+class AGVRepository{
+--Methods--
++ findByIdentifier(agvIdentifier)
++ save(agv)
+}
+
+class AGV{
+..Attributes..
+-max weight
+-volume
+-status
+-docker
+-autonomy
+-id
+-model
+}
+
+
+
+ChangeStatusUI ..> TcpAGVManagerClient
+TcpAGVManagerServer ..> ChangeStatusController
+
+TcpAGVManagerClient ..> TcpAGVManagerServer
+
+ChangeStatusController..>AGVRepository
+
+AGVRepository..>AGV
+
+
+
+@enduml

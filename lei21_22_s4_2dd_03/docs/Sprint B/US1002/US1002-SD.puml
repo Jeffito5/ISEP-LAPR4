@@ -1,0 +1,47 @@
+@startuml
+title SD - View the products catalog
+
+        participant "SalesClerk" as sc
+		participant ":ViewCatalogUI" as ui
+		participant ":ViewCatalogController" as ctrl
+		participant ":CatalogRepository" as repoCAT
+		participant ":Catalog" as catalog
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		participant ":CatalogRepository" as repo
+
+        sc->ui:view the products catalog
+        activate ui
+        ui-->sc:Asks the Sales Clerk if he wants to see the catalog or a product of the catalog
+        sc->ui:Selects what he wants to see
+
+        ui->ctrl:viewCatalog(id)
+        activate ctrl
+        ui->ctrl:viewProductOfTheCatalog(id, productCode)
+
+        ctrl->catalog:catalog=new Catalog(listOfProducts)
+        activate catalog
+        catalog-->ctrl:catalog
+        deactivate catalog
+
+		ctrl->pc:repositories()
+		activate pc
+		pc->rf:create
+		pc-->ctrl:factory
+		deactivate pc
+
+		ctrl->rf:catalogs()
+		activate rf
+		rf->repo:create
+		rf-->ctrl:catalogRepository
+		deactivate rf
+
+		ctrl->repo:findCatalogByCode(id)
+        ctrl-->ui:catalog
+        ui->ctrl:findProduct(id)
+
+        deactivate ctrl
+
+        ui-->sc:displays the informations and informs the success of the operation
+        deactivate ui
+@enduml

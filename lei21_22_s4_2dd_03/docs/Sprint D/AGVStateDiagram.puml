@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+
+
+state AGV{
+[*] -u-> FREE
+
+FREE -u-> OCCUPIED : Order assigned
+
+OCCUPIED -->CHARGING : Finished Task
+
+CHARGING -->FREE : Finished Recharge
+
+}
+
+@enduml

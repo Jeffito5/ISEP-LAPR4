@@ -1,0 +1,21 @@
+@startuml
+
+autonumber
+
+actor "Warehouse Employee" as WE
+
+activate WE
+
+WE -> System: asks to set up the warehouse plant
+activate System
+
+System --> WE: asks the path to the file
+deactivate System
+
+WE -> System: types the path
+activate System
+
+System --> WE: sets up the warehouse plant
+deactivate System
+deactivate WE
+@enduml

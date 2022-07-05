@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "AGV Digital Twin" as C
+activate C
+
+C -> System: wants to update its status
+activate System
+
+System --> C:asks to insert the agv identifier
+deactivate System
+C->System: inserts the agv identifier
+activate System
+System-->C: asks to insert the new status
+deactivate System
+C->System: inserts the new status
+activate System
+System--> C: shows the agv updated
+deactivate System
+@enduml

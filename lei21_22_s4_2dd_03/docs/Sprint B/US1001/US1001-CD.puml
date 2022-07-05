@@ -1,0 +1,235 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class SpecifyProductUI
+class SpecifyProductController
+class PersistenceContext
+class RepositoryFactory
+class ProductRepository
+class Product
+class InMemoryRepositoryFactory
+
+class SpecifyProductController {
+- listOfProducts
+- catalog
++ specifyProductController()
++ specifyProductWithoutTheProductionCode(id, code, shortDescription, extendedDescription,
+technicalDescription, productMeasurements, barcode, brandName,
+reference, priceWithTax, priceWithoutTax, category)
++ specifyProductWithTheProductionCode(id, code, shortDescription, extendedDescription,
+technicalDescription, productMeasurements, barcode, brandName,
+reference, priceWithTax, priceWithoutTax, productionCode, category)
++ chooseCategory()
++ category(code)
++ createInstanceOfProductMeasurements(aisleID, rowID, shelfID, width, length, height, weight)
+
+}
+
+class PersistenceContext {
++ repositories()
+}
+
+class Product {
+-internalCode
+-shortDescription
+-extendedDescription
+-technicalDescription
+-barcode
+-category
+-productMeasurements
+-brandName
+-reference
+-priceWithTax
+-priceWithoutTax
+-productionCode
++ Product()
++ Product(builder)
++ internalCode()
++ shortDescription()
++ changeShortDescription(shortDescription)
++ extendedDescription()
++ changeExtendedDescription(extendedDescription)
++ technicalDescription()
++ changeTechnicalDescription(technicalDescription)
++ barcode()
++ changeBarcode(barcode)
++ category()
++ changeCategory(category)
++ productMeasurements()
++ changeProductMeasurements(productMeasurements)
++ brandName()
++ changeBrandName(brandName)
++ reference()
++ changeReference(reference)
++ priceWithTax()
++ changePriceWithTax(priceWithTax)
++ priceWithoutTax()
++ changePriceWithoutTax(priceWithoutTax)
++ productionCode()
++ changeProductionCode(productionCode)
+}
+
+class ProductBuilder {
+-internalCode
+-shortDescription
+-extendedDescription
+-technicalDescription
+-barcode
+-category
+-productMeasurements
+-brandName
+-reference
+-priceWithTax
+-priceWithoutTax
+-productionCode
++ shortDescription(shortDescription)
++ extendedDescription(extendedDescription)
++ technicalDescription(technicalDescription)
++ barcode(barcode)
++ category(category)
++ productMeasurements(productMeasurements)
++ brandName(brandName)
++ reference(reference)
++ priceWithTax(priceWithTax)
++ priceWithoutTax(priceWithoutTax)
++ productionCode(productionCode)
++ build()
++ validateObject(product)
+}
+
+interface RepositoryFactory {
++ products()
++ products(transactionalContext)
+}
+
+interface ProductRepository {
++ add(entity)
++ findByCode(code)
++ findAll()
+}
+
+class JpaProductRepository {
++ add(entity)
++ findByCode(code)
++ findAll()
+}
+
+class JpaRepositoryFactory {
++ products()
++ products(transactionalContext)
+}
+
+class InMemoryRepositoryFactory {
++ products()
++ products(transactionalContext)
+}
+
+class InternalCode{
+-internalCode
++internalCode()
+}
+
+class ShortDescription {
+-shortDescription
++shortDescription()
+}
+
+class ExtendedDescription {
+-extendedDescription
++extendedDescription()
+}
+
+class TechnicalDescription {
+-technicalDescription
++technicalDescription()
+}
+
+class Barcode {
+-barcode
++barcode()
+}
+
+class Category {
+-code
+-description
++ category()
++ category(builder)
+}
+
+class ProductMeasurements {
+-aisleID
+-rowID
+-shelfID
+-width
+-length
+-height
+-weight
++aisleID()
++rowID()
++shelfID()
++width()
++length()
++height()
++weight()
++ruleAisleID(aisledID)
++ruleRowID(rowID)
++ruleShelfID(shelfID)
++ruleWidth(width)
++ruleLength(length)
++ruleHeight(height)
++ruleWeight(weight)
+}
+
+class BrandName {
+-brandName
++brandName()
+}
+
+class Reference {
+-reference
++reference()
+}
+
+class PriceWithTax {
+-priceWithTax
++priceWithTax()
+}
+
+class PriceWithoutTax {
+-priceWithoutTax
++priceWithoutTax()
+}
+
+class ProductionCode {
+-productionCode
++productionCode()
+}
+
+SpecifyProductUI..> SpecifyProductController
+SalesClerk ..> SpecifyProductUI
+ProductBuilder ..> Product
+SpecifyProductController ..> ProductBuilder
+SpecifyProductController ..> PersistenceContext
+SpecifyProductController ..> ProductRepository
+SpecifyProductController ..> RepositoryFactory
+
+RepositoryFactory ..> ProductRepository
+PersistenceContext ..> JpaProductRepository
+PersistenceContext ..> JpaRepositoryFactory
+JpaProductRepository ..> InMemoryRepositoryFactory
+JpaRepositoryFactory ..> InMemoryRepositoryFactory
+
+Product "1" --> "1" InternalCode
+Product "1" --> "1" ShortDescription
+Product "1" --> "1" ExtendedDescription
+Product "1" --> "1" TechnicalDescription
+Product "1" --> "1" Barcode
+Product "1" --> "1" Category
+Product "1" --> "1" ProductMeasurements
+Product "1" --> "1" BrandName
+Product "1" --> "1" Reference
+Product "1" --> "1" PriceWithTax
+Product "1" --> "1" PriceWithoutTax
+Product "1" --> "1" ProductionCode
+
+@enduml

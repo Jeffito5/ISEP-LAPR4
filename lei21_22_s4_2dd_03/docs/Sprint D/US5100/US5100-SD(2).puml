@@ -1,0 +1,50 @@
+@startuml
+title AGVMovementThread Communication
+autonumber
+participant ":AGVMovementThread" as thread
+participant "client:TcpDigitalTwinClient" as client
+participant ":TcpAgvManagerServer" as server
+participant "menu:TcpAgvManagerThreadMenu" as menu
+
+participant "sensor:SensorThread" as sensor
+participant "controller:AGVMovementController" as controller
+
+
+activate thread
+    thread -> client**:create()
+    thread -> client : run()
+    activate client
+    deactivate client
+    activate server
+        server -> menu** : create()
+        server-> menu:run
+        activate menu
+        deactivate menu
+        note right: wait for input.
+    deactivate server
+
+    thread -> client: writeByte(size,messageCode, info)
+    activate client
+    deactivate client
+    activate menu
+        alt Route Request
+            menu ->controller** : create(agv)
+
+            menu -> controller:calculateRoute(agv)
+            activate controller
+            deactivate controller
+        end
+
+        alt Sensor Request
+            menu ->sensor** : create(agv,nextPosition,priority)
+            menu -> sensor:run()
+            activate sensor
+            deactivate sensor
+        end
+
+    deactivate menu
+deactivate thread
+
+
+
+@enduml

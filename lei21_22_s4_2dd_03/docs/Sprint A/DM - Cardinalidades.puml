@@ -1,0 +1,154 @@
+@startuml
+
+'Roles
+
+package ROLES
+{
+
+class Customer
+
+class "Sales Clerk"
+
+class "Sales Manager"
+
+class "Warehouse Employee"
+
+class Administrator
+}
+
+
+'Questionnaire
+package Questionnaire
+{
+
+class Questionnaire
+
+class Section
+
+class Question
+
+class Survey
+
+class Multiple-Choice
+
+class "Free Text"
+
+class Numeric
+
+class Single-Choice
+
+class Scaling
+
+class Sorting
+
+class "Single-Choice w/ Input"
+
+class "Multiple-Choice w/ Input"
+}
+
+'Relationships
+Customer "1" -- "*" Survey:> answers
+Survey "*" -- "1" Questionnaire:< represented on
+Questionnaire "1" -- "1..*" Section: > contains
+Section "1" -- "1..*" Question: > contains
+' Survey "1" -- "1" Report: > generates
+Question "1" -- "1" "Free Text": < is a
+Question "1" -- "1" "Multiple-Choice": < is a
+Question "1"-- "1" Sorting: < is a
+Question "1" -- "1" Scaling: < is a
+Question "1" -- "1" "Single-Choice": < is a
+Question "1" -- "1" Numeric: < is a
+Question "1" -- "1" "Single-Choice w/ Input": < is a
+Question "1" -- "1" "Multiple-Choice w/ Input": < is a
+
+
+'SPOMS
+
+package SPOMS
+{
+class Product
+
+
+class "Shopping Cart"
+{
+    products
+    quantities
+}
+
+class Category
+class Catalog
+class Order
+class OrderItem
+{
+    'Porque os preços podem atualizar
+    unit price
+    tax
+    quantity
+}
+class Warehouse
+class Bin
+class Aisle
+{
+    id
+    xInicio
+    xFim
+    yInicio
+    yFim
+}
+class Row
+{
+    id
+    idAisle
+    xInicio
+    xFim
+    yInicio
+    yFim
+}
+
+class Shelf
+
+'AGVS
+class AGV
+class Task
+
+
+
+class Country
+class Address
+class Plant
+class Dock
+class "<VO>Warehouse Location"
+}
+'Relationships
+
+'SPOMS
+    Customer "1" -- "1..*" Address
+    Country "1" -- "1" Address
+    Warehouse "1" -- "*" AGV: > knows
+    Product "*" -- "1"Category:> presented under
+    Product "1..*" -- "1" Catalog: < composed by
+    "Shopping Cart" "1" -- "*" Product:> contains
+    "Shopping Cart" "1" -- "0..1" Order
+    "Shopping Cart" "1" -- "1" Customer:< manages
+    Catalog "1" -- "1..*" Customer: < accesses
+    AGV "1" -- "1" "<VO>Warehouse Location":> has
+    Plant "1" -- "1..*" Aisle:> has
+    Plant "1" -- "1..*" Dock: > has
+    Dock "1" -- "1" AGV:< operates at
+    Shelf "1..*" -- "1" Product:< stored at
+    Row "1" -- "1..*" Shelf:> contains
+    Aisle "1" -- "1..*" Row: > contains
+    Bin "1" -- "1" Product :> stores
+    "Warehouse Employee" "1..*" -- "1" Warehouse: < employees
+    Warehouse "1" -- "1..*" Plant : > organized by
+    AGV "*" -- "1" Plant: < guides
+    Shelf "1" -- "*" Bin: > stores
+
+
+    Order "1" -- "1" Task: > generates
+    Order "1" -- "1..*" OrderItem:> contains
+    OrderItem "*" -- "1" Product
+    Task "1" -- "1" AGV: < executes
+    Task "1" -- "1..*" Bin: > composed by
+
+@enduml

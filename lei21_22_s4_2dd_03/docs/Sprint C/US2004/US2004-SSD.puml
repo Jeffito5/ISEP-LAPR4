@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of viewing the list of \n orders that have already been prepared by the AGVs
+activate System
+System --> WarehouseEmployee: **1.1** Asks the Warehouse Employee which of the AGVs he wants to choose to see the orders that have been prepared
+deactivate System
+
+WarehouseEmployee -> System: **2.** Selects the AGV
+activate System
+System <-- WarehouseEmployee: **2.1.** Asks the Warehouse Employee to choose the order that has been prepared
+deactivate System
+
+WarehouseEmployee -> System: **3.** Selects the order
+activate System
+System <-- WarehouseEmployee: **3.1.** Changes the order's status and informs the Warehouse Employee about the success of the operation
+deactivate System
+
+@enduml

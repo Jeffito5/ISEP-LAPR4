@@ -1,0 +1,108 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class CreateOrderUI
+
+class CreateOrderController{
+--Methods--
++createOrder(id,paymentMethod,billingAddress,deliveryAddress,orderItems,dateTime)
++getDeliveryAddresses()
+}
+
+
+class Order{
+..Attributes..
+-deliveryAddress
+-dateTime
+--Method--
++valueOf()
+}
+
+class Identifier{
+..Attributes..
+-identifier
+}
+
+class OrderMeasurements{
+..Attributes..
+-maxPrice
+-volume
+-maxWeight
+}
+
+class OrderItem{
+..Attributes..
+-quantity
+}
+
+enum OrderStatus{
+..Attributes..
+-string
+}
+
+class Payment{
+..Attributes..
+-paymentConfirmation
+}
+
+enum PaymentMethod{
+..Attributes..
+-string
+-int
+}
+
+class StakeHolders{
+..Attributes..
+-conversation
+}
+
+class SystemUser
+
+class Customer{
+..Attributes..
+-gender
+-phone number
+-billing address
+-delivery address
+-name
+-email
+-birth date
+-vat
+--Methods--
++valueOf(name,email,vat,phone number,birth date,gender,billing address,delivery address)
+}
+
+class Catalog
+
+class Product
+
+interface CustomerRepository{
+--Methods--
++findByVat()
+}
+
+interface CountryRepository{
+--Methods--
++findByName()
+}
+
+CreateOrderUI..>CreateOrderController
+CreateOrderController..>Customer:uses
+CreateOrderController..>Order:registers
+CreateOrderController..>Catalog:uses
+Product"1..*"<--"1"Catalog: is composed
+
+CreateOrderController..>CustomerRepository:uses
+CreateOrderController..>CountryRepository:uses
+
+Order"1"-->"1..*"OrderItem: has
+Order--> StakeHolders
+Order--> Identifier
+Order-->OrderMeasurements
+Order--> Payment
+Order--> OrderStatus
+Payment--> PaymentMethod
+OrderItem"1"-->"1"Product: has
+StakeHolders-->Customer
+StakeHolders-->SystemUser
+@enduml

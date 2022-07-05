@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate SalesManager
+SalesManager -> System: **1.** Starts the process of getting a statistical report \n regarding a previously set up questionnaire.
+activate System
+System --> SalesManager: **1.1** Asks the Sales Manager to choose the survey he wants \n to generate the report about.
+deactivate System
+
+SalesManager -> System: **2.** Selects the survey.
+activate System
+System --> SalesManager: **2.1.** Asks the Sales Manager to introduce an id, a start \n and a final date to the report.
+deactivate System
+
+SalesManager -> System: **3.** Introduces the id, start and final date.
+activate System
+System --> SalesManager: **3.1.** Shows the report done and informs the Sales Manager \n about the success of the operation.
+deactivate System
+
+@enduml

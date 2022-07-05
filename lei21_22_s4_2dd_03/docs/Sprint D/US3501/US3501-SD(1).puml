@@ -1,0 +1,38 @@
+@startuml
+title Notify Customer Sequence Diagram
+
+autonumber
+activate ":BaseBackoffice"
+":BaseBackoffice" -> "watchDog:NewSurveyWatchDog" as WatchDog**: create()
+
+":BaseBackoffice"  -> ":EventDispatcher" as EventDispatcher: subscribe(watchDog, newSurveyEvent)
+
+    activate EventDispatcher
+    deactivate EventDispatcher
+
+
+":BaseBackoffice" -> ":CreateSurveyUI"as UI **: run()
+    activate UI
+    UI -> "controller:CreateSurveyController" as controller**:create()
+        activate controller
+        note right: creates survey
+        controller -->"event:NewSurveyEvent" as event **:create()
+        deactivate controller
+    UI --> ":BaseBackoffice"
+    deactivate UI
+
+    activate WatchDog
+        WatchDog -> "notifyController:NotifyCustomerController" as notifyController**:create()
+        WatchDog -> notifyController:notifyCustomer(event)
+            activate notifyController
+            deactivate notifyController
+
+    deactivate WatchDog
+
+deactivate ":BaseBackoffice"
+
+
+
+
+
+@enduml

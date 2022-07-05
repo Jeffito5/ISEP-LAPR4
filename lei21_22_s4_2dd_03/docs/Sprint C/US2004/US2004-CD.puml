@@ -1,0 +1,108 @@
+@startuml
+
+class UpdateOrderUI
+
+class UpdateOrderController {
++ findAGVOccupied()
++ findOrderByAGVId(identifier)
++ changeOrderStatusToDispatchedForDelivery(id)
++ findProductOrderById(id)
+}
+
+class PersistenceContext {
++ repositories()
+}
+
+class ProductOrder {
++ deployOrder()
+}
+
+class OrderDTO {
++ OrderDTO(order)
+}
+
+class OrderMapper {
++ toDTO(orderList)
++ toDTO(order)
+}
+
+interface RepositoryFactory {
++ orders()
++ orders(transactionalContext)
+}
+
+interface AGVRepository {
++ isAble(order)
++ findByIdentifier(id)
++ findAGVOccupied()
+}
+
+class AGVDTO {
++ AGVDTO(agv)
+}
+
+class AGVMapper {
++ toDTO(agvList)
+}
+
+class AGV {
++ agvStatus()
+}
+
+class Status{
++ productOrder()
+}
+
+interface OrderRepository {
++ add(entity)
++ findById(code)
++ findAll()
++ findPaid()
++ listOfOrdersPreparedByAGVs()
++ listOfOrdersInAscendingOrder()
+}
+
+class JpaOrderRepository {
++ add(entity)
++ findById(code)
++ findAll()
++ findPaid()
++ listOfOrdersPreparedByAGVs()
++ listOfOrdersInAscendingOrder()
+}
+
+class JpaRepositoryFactory {
++ orders()
++ orders(transactionalContext)
+}
+
+class InMemoryRepositoryFactory {
++ orders()
++ orders(transactionalContext)
+}
+
+'----------Relationships
+
+UpdateOrderUI ..> UpdateOrderController
+
+UpdateOrderController ..> PersistenceContext
+UpdateOrderController ..> RepositoryFactory
+UpdateOrderController ..> OrderRepository
+UpdateOrderController ..> OrderMapper
+UpdateOrderController ..> ProductOrder
+UpdateOrderController ..> AGVRepository
+UpdateOrderController ..> AGVMapper
+UpdateOrderController ..> AGV
+
+AGV ..> Status
+
+RepositoryFactory ..> OrderRepository
+PersistenceContext ..> JpaOrderRepository
+PersistenceContext ..> JpaRepositoryFactory
+JpaOrderRepository ..> InMemoryRepositoryFactory
+JpaRepositoryFactory ..> InMemoryRepositoryFactory
+
+OrderMapper ..> OrderDTO
+AGVMapper ..> AGVDTO
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+autonumber
+actor "Warehouse Employee" as WE
+
+WE -> System: asks to access the list of paid orders
+System --> WE: shows the requested list
+
+WE -> System: chooses the intended order
+System --> WE: shows the list of the available and able to perform the task AGVs
+
+WE -> System: chooses the intended AGV
+System --> WE: informs of the successful operation
+@enduml

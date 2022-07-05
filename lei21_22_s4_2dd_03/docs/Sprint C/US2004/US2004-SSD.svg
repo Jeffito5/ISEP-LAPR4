@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="304px" preserveAspectRatio="none" style="width:836px;height:304px;background:#FFFFFF;" version="1.1" viewBox="0 0 836 304" width="836px" zoomAndPan="magnify"><defs><filter height="300%" id="f1tjyhq6ynhhmh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="199.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="76.5" y="51.6094"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="90.3125"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="151.0156"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="211.7188"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="81" x2="81" y1="41.6094" y2="260.0703"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="794.5" x2="794.5" y1="41.6094" y2="260.0703"/><rect fill="#FEFECE" filter="url(#f1tjyhq6ynhhmh)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="149" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="12" y="26.5332">WarehouseEmployee</text><rect fill="#FEFECE" filter="url(#f1tjyhq6ynhhmh)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="149" x="5" y="259.0703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="12" y="280.6035">WarehouseEmployee</text><rect fill="#FEFECE" filter="url(#f1tjyhq6ynhhmh)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="762.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="769.5" y="26.5332">System</text><rect fill="#FEFECE" filter="url(#f1tjyhq6ynhhmh)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="762.5" y="259.0703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="769.5" y="280.6035">System</text><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="199.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="76.5" y="51.6094"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="90.3125"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="151.0156"/><rect fill="#FFFFFF" filter="url(#f1tjyhq6ynhhmh)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="789.5" y="211.7188"/><polygon fill="#A80036" points="777.5,86.3125,787.5,90.3125,777.5,94.3125,781.5,90.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="86.5" x2="783.5" y1="90.3125" y2="90.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="93.5" y="69.1045">1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="223" x="108.5" y="69.1045">Starts the process of viewing the list of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="303" x="97.5" y="85.4561">orders that have already been prepared by the AGVs</text><polygon fill="#A80036" points="97.5,116.6641,87.5,120.6641,97.5,124.6641,93.5,120.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="91.5" x2="793.5" y1="120.6641" y2="120.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="103.5" y="115.8076">1.1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="657" x="125.5" y="115.8076">Asks the Warehouse Employee which of the AGVs he wants to choose to see the orders that have been prepared</text><polygon fill="#A80036" points="777.5,147.0156,787.5,151.0156,777.5,155.0156,781.5,151.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="86.5" x2="783.5" y1="151.0156" y2="151.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="93.5" y="146.1592">2.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="108.5" y="146.1592">Selects the AGV</text><polygon fill="#A80036" points="782.5,177.3672,792.5,181.3672,782.5,185.3672,786.5,181.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="86.5" x2="788.5" y1="181.3672" y2="181.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="22" x="93.5" y="176.5107">2.1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="437" x="119.5" y="176.5107">Asks the Warehouse Employee to choose the order that has been prepared</text><polygon fill="#A80036" points="777.5,207.7188,787.5,211.7188,777.5,215.7188,781.5,211.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="86.5" x2="783.5" y1="211.7188" y2="211.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="93.5" y="206.8623">3.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="108.5" y="206.8623">Selects the order</text><polygon fill="#A80036" points="782.5,238.0703,792.5,242.0703,782.5,246.0703,786.5,242.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="86.5" x2="788.5" y1="242.0703" y2="242.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="22" x="93.5" y="237.2139">3.1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="584" x="119.5" y="237.2139">Changes the order's status and informs the Warehouse Employee about the success of the operation</text><!--MD5=[ef503a51dd52c95b2c06b03fea10d6d1]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of viewing the list of \n orders that have already been prepared by the AGVs
+activate System
+System - -> WarehouseEmployee: **1.1** Asks the Warehouse Employee which of the AGVs he wants to choose to see the orders that have been prepared
+deactivate System
+
+WarehouseEmployee -> System: **2.** Selects the AGV
+activate System
+System <- - WarehouseEmployee: **2.1.** Asks the Warehouse Employee to choose the order that has been prepared
+deactivate System
+
+WarehouseEmployee -> System: **3.** Selects the order
+activate System
+System <- - WarehouseEmployee: **3.1.** Changes the order's status and informs the Warehouse Employee about the success of the operation
+deactivate System
+
+@enduml
+
+@startuml
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of viewing the list of \n orders that have already been prepared by the AGVs
+activate System
+System - -> WarehouseEmployee: **1.1** Asks the Warehouse Employee which of the AGVs he wants to choose to see the orders that have been prepared
+deactivate System
+
+WarehouseEmployee -> System: **2.** Selects the AGV
+activate System
+System <- - WarehouseEmployee: **2.1.** Asks the Warehouse Employee to choose the order that has been prepared
+deactivate System
+
+WarehouseEmployee -> System: **3.** Selects the order
+activate System
+System <- - WarehouseEmployee: **3.1.** Changes the order's status and informs the Warehouse Employee about the success of the operation
+deactivate System
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

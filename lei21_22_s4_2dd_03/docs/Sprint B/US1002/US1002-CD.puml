@@ -1,0 +1,81 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ViewCatalogUI
+class ViewCatalogController
+class PersistenceContext
+class RepositoryFactory
+class CatalogRepository
+class Catalog
+class InMemoryRepositoryFactory
+
+class ViewCatalogController {
++ viewCatalogController()
++ viewCatalogByItsCode(id)
++ viewProductOfTheCatalogByCode(code, id)
++ viewProductOfTheCatalogByCategory(category, id)
++ viewProductOfTheCatalogByDescription(description, id)
++ viewProductOfTheCatalogByBrand(brand, id)
+}
+
+class PersistenceContext {
++ repositories()
+}
+
+class Catalog {
+-catalogId
+-listOfProducts
++ Catalog()
++ Catalog(id, listOfProducts)
++ id()
++ listOfProducts()
++ changeListOfProducts(listOfProducts)
+}
+
+class CatalogId {
+-id
++id()
+}
+
+interface RepositoryFactory {
++ catalogs()
++ catalogs(transactionalContext)
+}
+
+interface CatalogRepository {
++ add(entity)
++ findByCode(code)
++ findAll()
+}
+
+class JpaCatalogRepository {
++ add(entity)
++ findByCode(code)
++ findAll()
+}
+
+class JpaRepositoryFactory {
++ catalogs()
++ catalogs(transactionalContext)
+}
+
+class InMemoryRepositoryFactory {
++ catalogs()
++ catalogs(transactionalContext)
+}
+
+ViewCatalogUI..> ViewCatalogController
+SalesClerk ..> ViewCatalogUI
+ViewCatalogController ..> Catalog
+ViewCatalogController ..> PersistenceContext
+ViewCatalogController ..> CatalogRepository
+ViewCatalogController ..> RepositoryFactory
+
+RepositoryFactory ..> CatalogRepository
+PersistenceContext ..> JpaCatalogRepository
+PersistenceContext ..> JpaRepositoryFactory
+JpaCatalogRepository ..> InMemoryRepositoryFactory
+JpaRepositoryFactory ..> InMemoryRepositoryFactory
+
+Catalog "1" --> "1" CatalogId
+@enduml

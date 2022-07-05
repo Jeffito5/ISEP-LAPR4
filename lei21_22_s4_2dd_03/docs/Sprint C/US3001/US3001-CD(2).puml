@@ -1,0 +1,109 @@
+@startuml
+
+title US3001 - Class Diagram 2 (Section)
+
+
+class CreateSectionUI
+
+class CreateSectionController{
+--Methods--
++ CreateSectionController()
++ getQuestions()
++ createSection(...)
+}
+
+abstract JPARepository {
+--Methods--
++ add(entity)
++ findAll()
+}
+
+class SectionMapper{
+--Methods--
++ toDTO(section)
++ toDTO(sectionList)
+}
+
+class SectionDTO{
++ sectionId
++ toString
+}
+
+
+class QuestionMapper{
+--Methods--
++ toDTO(question)
+}
+
+class QuestionDTO{
++ toString
+}
+
+class SectionBuilder{
+- sectionId
+- sectionTitle
+- sectionDescription
+- obligatoriness
+- repeatability
+- questions
+--Methods--
++ withId(id)
++ withTitle(title)
++ withDescription(description)
++ withObligatoriness(obligatoriness)
++ withRepeatability(repeatability)
++ withQuestions(questions)
++ build()
+}
+
+class Section{
+- sectionId
+- sectionTitle
+- sectionDescription
+- obligatoriness
+- repeatability
+- questions
+--Methods--
++ toString();
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- extra info
+--Methods--
++ toString();
+}
+
+enum Obligatoriness{
+MANDATORY
+OPTIONAL
+CONDITIONAL
+}
+
+enum Repeatability{
+    NONE
+    BRAND
+    CATEGORY
+}
+CreateSectionUI ..> CreateSectionController
+
+CreateSectionController ..> SectionBuilder
+CreateSectionController ..> JPARepository
+CreateSectionController ..> SectionMapper
+
+QuestionMapper ..> QuestionDTO
+SectionMapper ..> SectionDTO
+SectionMapper ..> QuestionMapper
+
+SectionDTO "1" --> "1..*" QuestionDTO
+
+SectionBuilder ..> Section
+
+Section "1" --> "1..*" Question: contains
+Section --> Obligatoriness
+Section --> Repeatability
+
+@enduml

@@ -1,0 +1,91 @@
+@startuml
+
+class UpdateOrderToDeliveredUI
+
+class UpdateOrderToDeliveredControllerEventfulImpl {
++ changeOrderStatusToDelivered(orderDTO)
++ findProductOrderById(identifier)
++ listOfOrdersReceived()
++ findCustomerByOrderId(identifier)
+}
+
+class UpdateOrderController {
+}
+
+class Dispatcher {
++ publish(e)
++ handle(e)
+}
+
+class EventPublisher {
++ publishEvent(orderDTO)
+}
+
+class UpdateOrderToDeliveredEvent {
+}
+
+class UpdateOrderToDeliveredFactory {
++ build()
+}
+
+class ProductOrder {
++ deliverOrder()
+}
+
+class OrderDTO {
++ OrderDTO(order)
+}
+
+class OrderMapper {
++ toDTO(orderList)
++ toDTO(order)
+}
+
+interface RepositoryFactory {
++ save(order)
+}
+
+class CustomerDTO {
++ CustomerDTO()
+}
+
+class Customer {
++ toDTO()
++ vat()
+}
+
+interface OrderRepository {
++ add(entity)
++ findById(code)
++ findAll()
++ findPaid()
++ listOfOrdersPreparedByAGVs()
++ listOfOrdersInAscendingOrder()
++ listOfOrdersReceived();
+}
+
+interface CustomerRepository {
++ findByVat(vat);
++ findByEmail(email);
+}
+
+'----------Relationships
+
+UpdateOrderController ..> EventPublisher
+EventPublisher ..> UpdateOrderToDeliveredEvent
+EventPublisher ..> Dispatcher
+
+UpdateOrderToDeliveredUI ..> UpdateOrderToDeliveredControllerEventfulImpl
+UpdateOrderToDeliveredUI ..> UpdateOrderToDeliveredFactory
+
+UpdateOrderToDeliveredControllerEventfulImpl ..> OrderRepository
+UpdateOrderToDeliveredControllerEventfulImpl ..> OrderMapper
+UpdateOrderToDeliveredControllerEventfulImpl ..> ProductOrder
+UpdateOrderToDeliveredControllerEventfulImpl ..> Customer
+UpdateOrderToDeliveredControllerEventfulImpl ..> CustomerRepository
+UpdateOrderToDeliveredControllerEventfulImpl ..> RepositoryFactory
+
+OrderMapper ..> OrderDTO
+Customer ..> CustomerDTO
+
+@enduml

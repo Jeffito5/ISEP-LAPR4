@@ -1,0 +1,88 @@
+@startuml
+
+class SeeReportUI
+
+class SeeReportController {
++ findSurveys()
++ calculateReportPercentages(surveyCode, firstDate, secondDate, id)
+}
+
+class SurveyDTO {
++ SurveyDTO(id, string)
+}
+
+class SurveyMapper {
++ toDTO(surveyList)
+}
+
+class ReportDTO {
++ ReportDTO(report)
+}
+
+class ReportMapper {
++ toDTO(report)
+}
+
+class Survey {
++ questionnaire()
+}
+
+class Questionnaire {
++ sections()
+}
+
+class Section {
++ questions()
+}
+
+class Report {
++ newReport(id, firstDate, secondDate, data)
+}
+
+class ReportPercentagesCalculator {
++ universeSizeOfSurvey(surveyCode)
++ numberOfResponsesObtained(surveyCode)
++ percentageOfResponsesObtained(surveyCode)
++ calculatePercentages(surveyCode, questionList)
++ writeAllDataOfTheReport()
+}
+
+interface SurveyRepository {
++ findAll();
++ findSurveyByCode(surveyCode)
++ universeSizeOfSurvey(surveyCode);
++ numberOfQuestions(surveyCode);
+}
+
+interface AnswerRepository {
++ numberOfResponsesObtained(surveyCode);
++ findAnswersWithQuestionsOfFT(surveyCode, question);
++ findAnswersWithQuestionsOfNumeric(surveyCode, question);
++ findAnswersWithQuestionsOfSC(surveyCode, question);
++ findAnswersWithQuestionsOfSCIV(surveyCode, question);
++ findAnswersWithQuestionsOfMC(surveyCode, question);
++ findAnswersWithQuestionsOfMCIV(surveyCode, question);
++ findAnswersWithQuestionsOfSorting(surveyCode, question);
++ findAnswersWithQuestionsOfScaling(surveyCode, question);
+}
+
+'----------Relationships
+SeeReportUI ..> SeeReportController
+
+SeeReportController ..> SurveyRepository
+SeeReportController ..> AnswerRepository
+SeeReportController ..> SurveyMapper
+SeeReportController ..> ReportPercentagesCalculator
+SeeReportController ..> Survey
+SeeReportController ..> Questionnaire
+SeeReportController ..> Section
+SeeReportController ..> Report
+SeeReportController ..> ReportMapper
+
+ReportMapper ..> ReportDTO
+SurveyMapper ..> SurveyDTO
+
+ReportPercentagesCalculator ..> SurveyRepository
+ReportPercentagesCalculator ..> AnswerRepository
+
+@enduml

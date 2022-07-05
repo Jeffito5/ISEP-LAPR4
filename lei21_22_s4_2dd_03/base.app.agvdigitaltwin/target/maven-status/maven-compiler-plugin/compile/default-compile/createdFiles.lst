@@ -1,0 +1,15 @@
+server\TcpDigitalTwinServer.class
+server\TcpDTThreadComeBack.class
+client\presentation\ACKUI.class
+client\TcpDigitalTwinClient.class
+client\presentation\ChangeStatusUI.class
+client\presentation\ConnectUI.class
+client\BaseDTClientApp.class
+server\TcpDTThreadAGVMovement.class
+client\presentation\DisconnectUI.class
+server\TcpDTThreadBatteryCharging.class
+server\TcpDTThreadMovement.class
+server\TcpDigitalTwinServerThreadMenu.class
+client\presentation\MainMenu.class
+server\TcpDTThreadSensor.class
+server\TcpDTThreadBattery.class

@@ -1,0 +1,113 @@
+@startuml
+title SD - Access a list of orders that had been dispatched for customer delivery and update some of those orders to as "being delivered"
+
+        participant "SalesClerk" as sc
+        participant "Dispatcher" as dispatcher
+        participant ":UpdateOrderController" as ctrl1
+        participant ":EventPublisher" as p
+        participant "e UpdateOrderToDeliveredEvent" as event
+		participant ":UpdateOrderToDeliveredUI" as ui
+		participant ":UpdateOrderToDeliveredFactory" as orderFac
+		participant ":UpdateOrderToDeliveredControllerEventfulImpl" as ctrl
+		participant "orderRepository:OrderRepository" as repo
+		participant "orderMapper:OrderMapper" as orderMapper
+        participant "orderDTO:OrderDTO" as orderDTO
+		participant "productOrder:ProductOrder" as order
+		participant ":RepositoryFactory" as rf
+		participant "customer:Customer" as cstm
+		participant "customerDTO:CustomerDTO" as cstmDTO
+		participant "customerRepository:CustomerRepository" as cstmRepo
+
+        sc->dispatcher: subscribe(updateOrderToDeliveredEvent)
+        note left: subscribe to future events
+        activate dispatcher
+        dispatcher-->sc:
+        deactivate dispatcher
+
+        ctrl1->p: publishEvent(orderDTO)
+        activate ctrl1
+        deactivate ctrl1
+        activate p
+        p->p:
+        p->event **: create
+        p->dispatcher: publish(e)
+        activate dispatcher
+        dispatcher-->sc: handle(e)
+        note left: asynchronously notify subscribers
+        deactivate dispatcher
+        p-->ctrl1:
+        activate ctrl1
+        deactivate ctrl1
+        deactivate p
+
+        sc->ui: view the list of orders that \n have already been received by the customers
+        activate ui
+        ui->orderFac: build()
+        activate orderFac
+        deactivate orderFac
+        ui->ctrl: listOfOrdersReceived()
+        activate ctrl
+        ctrl->repo: listOfOrdersReceived()
+        activate repo
+        deactivate repo
+
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(orderList))
+        deactivate orderDTO
+        deactivate orderMapper
+
+        ui-->sc: Asks the Sales Clerk to choose the order that has been received
+
+        loop option != 0
+        ui->ui:showOrders()
+        ui-->sc:
+        sc->ui:select order
+        end loop
+
+        ui->ctrl: changeOrderStatusToDelivered(orderDto)
+
+        ctrl->repo: findById(id)
+        activate repo
+        deactivate repo
+        ctrl->order: deliverOrder()
+        activate order
+        deactivate order
+        ctrl->rf: save(order)
+        activate rf
+        deactivate rf
+        ui->ctrl: findProductOrderById(id)
+        ctrl->repo: findById(id)
+        activate repo
+        deactivate repo
+
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(order)
+        deactivate orderDTO
+        deactivate orderMapper
+
+        ui->ctrl: findCustomerByOrderId(identifier)
+        ctrl->repo: findById(id)
+        activate repo
+        deactivate repo
+        ctrl->cstm: vat()
+        activate cstm
+        cstm->cstmDTO: toDTO()
+        activate cstmDTO
+        deactivate cstmDTO
+        deactivate cstm
+        ctrl->cstmRepo: findByVat(vat)
+        activate cstmRepo
+        deactivate cstmRepo
+
+        deactivate ctrl
+
+        ui-->sc: Changes the order's status, shows \nthe customer and informs the \nSales Clerk about the success of the operation
+        deactivate ui
+
+@enduml

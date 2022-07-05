@@ -1,0 +1,85 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+activate ":SalesClerk"
+
+
+":SalesClerk" -> ":CreateOrderUI": asks to register an order for a given Customer
+activate ":CreateOrderUI"
+
+":CreateOrderUI"->":CreateOrderController":findCustomer(vat)
+activate ":CreateOrderController"
+
+":CreateOrderController"->":CustomerRepository":findByVat(vat)
+deactivate ":CreateOrderController"
+
+
+":CreateOrderUI" --> ":SalesClerk"
+
+
+":SalesClerk" -> ":CreateOrderUI": insert (conversation, identifier,deliveryAddress, countryName)
+
+
+
+":CreateOrderUI" -> ":CreateOrderController": createCountry(countryName)
+
+activate ":CreateOrderController"
+
+":CreateOrderController" -> ":CountryRepository" : findByName(countryName)
+
+deactivate ":CreateOrderController"
+
+":SalesClerk" <-- ":CreateOrderUI"
+
+
+":SalesClerk" --> ":CreateOrderUI" : asks to do the orderItems
+
+
+":CreateOrderUI" -> ":CreateOrderController": listAll()
+activate ":CreateOrderController"
+
+":CreateOrderController" -> ":ProductRepository": listAll()
+deactivate ":CreateOrderController"
+
+loop as many times the sales clerk wants to add products to the order
+
+deactivate ":CreateOrderController"
+
+":SalesClerk" -> ":CreateOrderUI" : add a product, insert the quantity
+":CreateOrderUI" -> ":CreateOrderController": addOrderItem(product,quantity)
+
+end
+
+
+
+":CreateOrderUI" -> ":CreateOrderController": price = createOrderMeasurements()
+
+activate ":CreateOrderController"
+
+":CreateOrderUI" <-- ":CreateOrderController":
+deactivate ":CreateOrderController"
+
+":SalesClerk" <-- ":CreateOrderUI" : show the order price
+
+":SalesClerk" -> ":CreateOrderUI": choose the paymentMethod, insert the payment confirmation
+
+
+":CreateOrderUI" -> ":CreateOrderController": createOrder(identification, street, doorNumber, postalCode, city, conversation, systemUser, pmIndex, paymentConfirmation)
+
+activate ":CreateOrderController"
+
+":CreateOrderController" -> ":ProductOrder": productOrder = ProductOrder.valueOf(identifier, deliveryAddress, orderMeasurements, payment, stakeholders, date, orderItemList, OrderStatus.PAID)
+
+":CreateOrderController" -> "OrderRepository": save(productOrder)
+
+deactivate ":CreateOrderController"
+
+deactivate ":CreateOrderUI"
+deactivate ":SalesClerk"
+
+
+
+
+@enduml

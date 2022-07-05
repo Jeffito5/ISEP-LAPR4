@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="584px" preserveAspectRatio="none" style="width:196px;height:584px;background:#FFFFFF;" version="1.1" viewBox="0 0 196 584" width="196px" zoomAndPan="magnify"><defs/><g><rect fill="#F1F1F1" height="571.6094" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="182" x="7" y="7"/><rect fill="#FFFFFF" height="542" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="180" x="8" y="35.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="7" x2="189" y1="34.6094" y2="34.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="73" y="26.5332">ORDER</text><ellipse cx="73" cy="55.6094" fill="#222222" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="ORDER.PAID"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="51" x="47.5" y="102.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="47.5" x2="98.5" y1="130.2188" y2="130.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="57.5" y="122.1426">PAID</text></g><g id="ORDER.DEVELOPING"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="108" x="19" y="206.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="19" x2="127" y1="234.2188" y2="234.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="29" y="226.1426">DEVELOPING</text></g><g id="ORDER.DEPLOYED"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="95" x="25.5" y="310.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="25.5" x2="120.5" y1="338.2188" y2="338.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="35.5" y="330.1426">DEPLOYED</text></g><g id="ORDER.RECEIVED"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="89" x="28.5" y="414.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="28.5" x2="117.5" y1="442.2188" y2="442.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="38.5" y="434.1426">RECEIVED</text></g><g id="ORDER.DELIVERED"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="97" x="24.5" y="518.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="24.5" x2="121.5" y1="546.2188" y2="546.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="34.5" y="538.1426">DELIVERED</text></g><!--MD5=[f19004820226e8611778341aa19d683f]
+link *start*ORDER to PAID--><g id="link_*start*ORDER_PAID"><path d="M73,65.7594 C73,73.7994 73,85.9394 73,97.2594 " fill="none" id="*start*ORDER-to-PAID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="73,102.3894,77,93.3894,73,97.3894,69,93.3894,73,102.3894" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ae38e828af7140855c44cf43cd8f5ed2]
+link PAID to DEVELOPING--><g id="link_PAID_DEVELOPING"><path d="M73,152.7794 C73,167.2794 73,185.8294 73,201.1794 " fill="none" id="PAID-to-DEVELOPING" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="73,206.2594,77,197.2594,73,201.2594,69,197.2594,73,206.2594" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="74" y="185.1045">Assigned</text></g><!--MD5=[d73ffeb82513ec9101113ed5cf5fb7b6]
+link DEVELOPING to DEPLOYED--><g id="link_DEVELOPING_DEPLOYED"><path d="M73,256.7794 C73,271.2794 73,289.8294 73,305.1794 " fill="none" id="DEVELOPING-to-DEPLOYED" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="73,310.2594,77,301.2594,73,305.2594,69,301.2594,73,310.2594" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="74" y="289.1045">AGV finished task</text></g><!--MD5=[9c022bebb6990a1bd4778a4a202d751d]
+link DEPLOYED to RECEIVED--><g id="link_DEPLOYED_RECEIVED"><path d="M73,360.7794 C73,375.2794 73,393.8294 73,409.1794 " fill="none" id="DEPLOYED-to-RECEIVED" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="73,414.2594,77,405.2594,73,409.2594,69,405.2594,73,414.2594" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="74" y="393.1045">Received by client</text></g><!--MD5=[aadeabbec29b43ef30efd35d400140c8]
+link RECEIVED to DELIVERED--><g id="link_RECEIVED_DELIVERED"><path d="M73,464.7794 C73,479.2794 73,497.8294 73,513.1794 " fill="none" id="RECEIVED-to-DELIVERED" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="73,518.2594,77,509.2594,73,513.2594,69,509.2594,73,518.2594" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="102" x="74" y="497.1045">Package received</text></g><!--MD5=[5938b9b10edc1cd493c605ccd5b51a2a]
+@startuml
+'https://plantuml.com/state-diagram
+
+state ORDER{
+[*] - -> PAID
+
+PAID - -> DEVELOPING : Assigned
+
+DEVELOPING - -> DEPLOYED : AGV finished task
+
+DEPLOYED - -> RECEIVED : Received by client
+
+RECEIVED - -> DELIVERED: Package received
+}
+@enduml
+
+@startuml
+
+state ORDER{
+[*] - -> PAID
+
+PAID - -> DEVELOPING : Assigned
+
+DEVELOPING - -> DEPLOYED : AGV finished task
+
+DEPLOYED - -> RECEIVED : Received by client
+
+RECEIVED - -> DELIVERED: Package received
+}
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

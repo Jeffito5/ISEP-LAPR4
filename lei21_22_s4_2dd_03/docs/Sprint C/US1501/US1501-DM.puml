@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Customer
+
+
+class ShoppingCart
+
+class Product
+
+Customer"1" --"1" ShoppingCart :> has a
+ShoppingCart"1" --"*" Product :> has
+@enduml

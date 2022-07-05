@@ -1,0 +1,58 @@
+@startuml
+title SD - Specify a new product for sale
+
+        participant "SalesClerk" as sc
+		participant ":SpecifyProductUI" as ui
+		participant ":SpecifyProductController" as ctrl
+		participant ":CategoryRepository" as repoCAT
+		participant ":ProductBuilder" as bd
+		participant ":Product" as product
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		participant ":ProductRepository" as repo
+
+        sc->ui:specify new product
+        activate ui
+        ui-->sc:asks product information
+        sc->ui:inserts product information(code, \ndescriptions, technical description,\nphotos, brand name, reference, price,\ntax)
+
+        ui->ctrl:getCategories
+
+        ctrl->repoCAT:getAll
+
+        loop option != 0
+        ui->ui:showCategories
+        ui-->sc:
+        sc->ui:select category
+        end loop
+
+        ui->ctrl:specifyProduct(code, \ndescriptions, technical description,\nphotos, brand name, reference, price,\ntax, category)
+        activate ctrl
+
+        ctrl->bd:create
+        ctrl->bd:createProduct()
+        activate bd
+        bd->product:create(code, \ndescriptions, technical description,\nphotos, brand name, reference, price,\ntax, category)
+        product-->bd:product
+        bd-->ctrl:product
+        deactivate bd
+
+		ctrl->pc:repositories()
+		activate pc
+		pc->rf:create
+		pc-->ctrl:factory
+		deactivate pc
+
+		ctrl->rf:products()
+		activate rf
+		rf->repo:create
+		rf-->ctrl:productRepository
+		deactivate rf
+
+		ctrl->repo:save(newProduct)
+        ctrl-->ui:product
+        deactivate ctrl
+
+        ui-->sc:informs the success of the operation
+        deactivate ui
+@enduml

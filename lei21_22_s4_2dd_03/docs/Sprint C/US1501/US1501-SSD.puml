@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Client" as C
+activate C
+
+C -> System: wants to add products to the shopping cart
+activate System
+
+System --> C: catalog
+deactivate System
+
+
+C -> System: selects a product and quantity
+activate System
+
+
+System -->C: adds that product to the shopping cart and shows shopping cart
+deactivate System
+@enduml

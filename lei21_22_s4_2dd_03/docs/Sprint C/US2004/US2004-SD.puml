@@ -1,0 +1,110 @@
+@startuml
+title SD - Access the list of orders that have already been prepared by the AGVs and update any of those orders as having been dispatched for customer delivery
+
+        participant "WarehouseEmployee" as whe
+		participant ":UpdateOrderUI" as ui
+		participant ":UpdateOrderController" as ctrl
+		participant ":agvRepository:AGVRepository" as agvRepo
+		participant "agvMapper:AGVMapper" as agvMapper
+        participant "agvDTO:AGVDTO" as agvDTO
+		participant "agv:AGV" as agv
+		participant "agvStatus:Status" as agvStatus
+		participant "orderMapper:OrderMapper" as orderMapper
+        participant "orderDTO:OrderDTO" as orderDTO
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		participant "orderRepository:OrderRepository" as repo
+		participant "productOrder:ProductOrder" as order
+
+        whe->ui: view the list of \norders that have already been prepared by the AGVs
+        activate ui
+        ui->ctrl: findAGVOccupied()
+        activate ctrl
+        ctrl->agvRepo: findAGVOccupied()
+        activate agvRepo
+        deactivate agvRepo
+
+        ctrl->agvMapper: create()
+        activate agvMapper
+        agvMapper->agvDTO: create()
+        activate agvDTO
+        agvMapper->agvDTO: toDTO(agvList)
+        deactivate agvDTO
+        deactivate agvMapper
+
+        loop option != 0
+        ui->ui:showAGVsOccupied()
+        ui-->whe:
+        whe->ui: select the AGV
+        end loop
+
+        ui->ctrl: findOrderByAGVId(identifier)
+        ctrl->agvRepo: findByIdentifier(identifier)
+        activate agvRepo
+        deactivate agvRepo
+        ctrl->agv: agvStatus()
+        activate agv
+        agv->agvStatus: productOrder()
+        activate agvStatus
+        deactivate agv
+        deactivate agvStatus
+
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(orderList)
+        deactivate orderDTO
+        deactivate orderMapper
+
+        ui-->whe: Asks the Warehouse Employee which of the orders can be dispatched for customer delivery
+
+        loop option != 0
+        ui->ui:showOrders()
+        ui-->whe:
+        whe->ui:select order
+        end loop
+
+        ui->ctrl: changeOrderStatusToDispatchedForDelivery(id)
+
+        ctrl->pc: repositories()
+        activate pc
+        pc->rf: create()
+        activate rf
+        pc-->ctrl: factory()
+        deactivate rf
+        deactivate pc
+
+        ctrl->rf: orders()
+        activate rf
+        rf->repo: create()
+        activate repo
+        rf-->ctrl: orderRepository()
+        deactivate repo
+        deactivate rf
+
+        ctrl->repo: findById(id)
+        activate repo
+        deactivate repo
+        ctrl->order: deployOrder()
+        activate order
+        deactivate order
+        ui->ctrl: findProductOrderById(id)
+        ctrl->repo: findById(id)
+        activate repo
+        deactivate repo
+
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(order)
+        deactivate orderDTO
+        deactivate orderMapper
+
+        deactivate ctrl
+
+        ui-->whe: shows the order modified and informs the success of the operation
+        deactivate ui
+
+@enduml

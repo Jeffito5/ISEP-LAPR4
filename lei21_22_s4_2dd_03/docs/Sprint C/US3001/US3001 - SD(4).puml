@@ -1,0 +1,60 @@
+@startuml
+title US3001 - Sequence Diagram 4 (Survey)
+
+autonumber
+
+actor "Sales Manages" as manager
+
+activate manager
+
+    manager -> ":CreateSurveyUI" as ui:wants to create a new section.
+    activate ui
+        note right: (Data requests to Manager\n omitted)
+        ui -> "controller:CreateSurveyController" as controller: createSurvey()
+        activate controller
+
+            controller --> "builder:SurveyBuilder" as builder**:create()
+
+            controller -> builder:witTimeInterval(timeIntervaç)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withAudience(audience)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withQuestionnaire(questionnaire)
+            activate builder
+            deactivate builder
+
+
+            controller -> builder:build()
+            activate builder
+                builder --> "survey:Survey" as questionnaire**:create(...)
+                activate questionnaire
+                questionnaire --> builder : questionnaire
+                deactivate questionnaire
+               builder-->controller: questionnaire
+            deactivate builder
+
+            controller -> "repo:JPARepository" as repo: add(survey)
+            activate repo
+            deactivate repo
+
+
+            controller -> ":SurveyMapper" as mapper:toDTO(survey)
+            activate mapper
+                mapper --> "dto:SurveyDTO" as dto**: create(...)
+                activate dto
+                    dto--> mapper:dto
+                deactivate dto
+                mapper --> controller:dto
+            deactivate mapper
+            controller --> ui:dto
+        deactivate controller
+        ui -> dto: toString
+        activate dto
+        deactivate dto
+        ui --> manager: inform operation success.
+    deactivate ui
+@enduml

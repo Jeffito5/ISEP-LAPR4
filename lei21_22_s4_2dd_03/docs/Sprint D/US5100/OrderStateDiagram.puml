@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+state ORDER{
+[*] --> PAID
+
+PAID --> DEVELOPING : Assigned
+
+DEVELOPING --> DEPLOYED : AGV finished task
+
+DEPLOYED --> RECEIVED : Received by client
+
+RECEIVED --> DELIVERED: Package received
+}
+@enduml

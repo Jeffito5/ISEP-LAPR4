@@ -1,0 +1,34 @@
+@startuml
+title SD -  Register a new customer
+
+        participant "SalesClerk" as sc
+		participant ":CreateCustomerUI" as ui
+		participant ":CreateCustomerController" as ctrl
+		participant ":Customer" as customer
+		participant ":JpaRepository" as repo
+
+        sc->ui:wants to create a new customer
+        activate ui
+        ui-->sc:asks for customer information
+        sc->ui:inserts customer information(name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
+
+
+        ui->ctrl:valueOf(name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
+        activate ctrl
+        ctrl->repo:create()
+        activate repo
+        deactivate repo
+        ctrl->customer:customer = valueOf(name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
+        activate customer
+        deactivate customer
+
+
+		ctrl->repo:add(customer)
+		activate repo
+		deactivate repo
+
+        deactivate ctrl
+
+        ui-->sc:informs the success of the operation
+        deactivate ui
+@enduml

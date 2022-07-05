@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate SalesClerk
+SalesClerk -> System: **1.** Starts the process of specifying a new product for sale
+activate System
+System --> SalesClerk: **1.1** Asks the Sales Clerk about the product's information
+deactivate System
+
+SalesClerk -> System: **2.** Inserts the requested data (code, \ndescriptions, technical description,\nphotos, brand name, reference, price,\ntax)
+activate System
+System <-- SalesClerk: **2.1.** Displays the data and requests confirmation
+deactivate System
+
+SalesClerk -> System: **3.** Confirms
+activate System
+System <-- SalesClerk: **3.1.** Informs the Sales Clerk about the success of the operation
+deactivate System
+
+@enduml

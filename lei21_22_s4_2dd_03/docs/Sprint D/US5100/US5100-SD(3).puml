@@ -1,0 +1,121 @@
+@startuml
+title AGV Digital Twin Management
+autonumber
+
+participant ":AGVMovementThread" as thread
+participant "sensor:SensorThread" as sensor
+participant "controller:AGVMovementController" as controller
+participant "plant:Plant" as plant
+participant "agv:AGV" as agv
+participant "repo:JpaAGVRepository" as repo
+participant "route:Route" as route
+participant "order:ProductOrder" as order
+participant "item:OrderItem" as item
+participant "location:ProductLocation" as location
+participant "plantRepo:JPARepository<Plant>" as plantRepo
+participant "position:RoutePosition" as position
+participant "routePlanner:RoutePlanner" as routePlanner
+participant "product:Product" as product
+
+activate thread
+    note right: Server communication omitted \nfor simplification.
+
+    thread -> controller:calculateRoute(agv,obstacleList)
+    activate controller
+        controller -> plantRepo: findAll()
+        activate plantRepo
+            plantRepo-->controller:plant
+        deactivate plantRepo
+
+        controller-> agv:dock()
+        activate agv
+            agv-->controller:dock
+        deactivate agv
+
+        controller->agv:order()
+        activate agv
+            agv-->controller:order
+        deactivate agv
+
+        controller->order:items()
+        activate order
+            order--> controller:items
+        deactivate order
+        loop for each item
+            controller -> item:product()
+            activate item
+                item-->controller:product
+            deactivate item
+
+            controller ->product:location()
+            activate product
+                product-->controller:location
+            deactivate product
+
+            controller -> location:aisle()
+            activate location
+                location-->controller:aisle
+            deactivate location
+        end
+
+    controller->routePlanner:calculateRoute(plant, obstacleList,dock,aisle)
+    activate routePlanner
+    deactivate routePlanner
+    deactivate controller
+
+    loop until route is finished
+    thread -> sensor**: create(agv,nextPosition,priority)
+    thread -> sensor: run()
+    activate sensor
+            sensor -> controller:verifyPosition(nextPosition)
+            activate controller
+                controller -> controller:validatePosition(nextPosition,plant)
+                controller ->repo:searchObstacles(nextPosition)
+                activate repo
+                    repo--> controller: result
+                deactivate repo
+                controller --> sensor: result
+            deactivate controller
+            sensor -> sensor:updateAGV(agv,option)
+            alt
+                sensor -> controller: slowDown(agv)
+                activate controller
+                deactivate controller
+            end
+
+            alt
+                sensor -> controller: stop(agv)
+                activate controller
+                deactivate controller
+            end
+
+            alt
+                sensor -> controller: speedUp(agv)
+                activate controller
+                deactivate controller
+            end
+    deactivate sensor
+
+    thread -> controller:updateAGVPosition(agv,routePosition)
+    activate controller
+        controller ->position:coordinates()
+        activate position
+            position--> controller:coordinates
+        deactivate position
+
+        controller ->position:direction()
+                activate position
+                    position--> controller:direction
+                deactivate position
+
+        controller -> agv:updateCoordinates(coordinates,direction)
+        activate agv
+        deactivate agv
+        controller->repo:save(agv)
+        activate repo
+        deactivate repo
+    deactivate controller
+
+    end
+deactivate thread
+@enduml

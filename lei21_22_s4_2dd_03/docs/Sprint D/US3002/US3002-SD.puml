@@ -1,0 +1,107 @@
+@startuml
+title SD - Access the list of orders that have already been prepared by the AGVs and update any of those orders as having been dispatched for customer delivery
+
+        participant "SalesManager" as sm
+		participant ":SeeReportUI" as ui
+		participant ":SeeReportController" as ctrl
+		participant "surveyMapper:SurveyMapper" as surveyMapper
+        participant "surveyDTO:SurveyDTO" as surveyDTO
+        participant "reportPercentagesCalculator:ReportPercentagesCalculator" as repPercCalc
+		participant ":surveyRepository:SurveyRepository" as surveyRepo
+		participant ":answerRepository:AnswerRepository" as answerRepo
+		participant "survey:Survey" as surv
+		participant "questionnaire:Questionnaire" as quest
+		participant "section:Section" as sec
+		participant "report:Report" as report
+        participant "reportMapper:ReportMapper" as reportMapper
+        participant "reportDTO:ReportDTO" as reportDTO
+
+        sm->ui: generate a statistical report \n regarding a previously set up questionnaire
+        activate ui
+        ui->ctrl: findSurveys()
+        activate ctrl
+        ctrl->surveyRepo: findAll()
+        activate surveyRepo
+        deactivate surveyRepo
+
+        ctrl->surveyMapper: create()
+        activate surveyMapper
+        surveyMapper->surveyDTO: create()
+        activate surveyDTO
+        surveyMapper->surveyDTO: toDTO(surveyList)
+        deactivate surveyDTO
+        deactivate surveyMapper
+
+        loop option != 0
+        ui->ui:showSurveys()
+        ui-->sm:
+        sm->ui: select the survey
+        end loop
+
+        ui-->sm: Asks report information
+        sm -> ui: Inserts report information (id, firstDate and secondDate)
+
+        ui->ctrl: calculateReportPercentages(surveyCode, firstDate, secondDate, id)
+
+        ctrl->repPercCalc: universeSizeOfSurvey(surveyCode)
+        activate repPercCalc
+        repPercCalc->surveyRepo: universeSizeOfSurvey(surveyCode)
+        activate surveyRepo
+        deactivate surveyRepo
+        ctrl->repPercCalc: numberOfResponsesObtained(surveyCode)
+        repPercCalc->answerRepo: numberOfResponsesObtained(surveyCode)
+        activate answerRepo
+        deactivate answerRepo
+
+        ctrl->repPercCalc: percentageOfResponsesObtained(surveyCode)
+        deactivate repPercCalc
+
+        ctrl->surveyRepo: findSurveyByCode(surveyCode)
+        activate surveyRepo
+        deactivate surveyRepo
+        ctrl->surv: questionnaire()
+        activate surv
+        deactivate surv
+        ctrl->quest: sections()
+        activate quest
+        deactivate quest
+        ctrl->sec: questions()
+        activate sec
+        deactivate sec
+
+        ctrl->repPercCalc: calculatePercentages(surveyCode, questionList)
+        activate repPercCalc
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfFT(surveyCode, question)
+        activate answerRepo
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfFT(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfNumeric(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfSC(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfSCIV(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfMC(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfMCIV(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfScaling(surveyCode, question)
+        repPercCalc->answerRepo: findAnswersWithQuestionsOfScaling(surveyCode, question)
+        deactivate answerRepo
+
+        ctrl->repPercCalc: writeAllDataOfTheReport()
+        deactivate repPercCalc
+
+        ctrl->report: newReport(id, firstDate, secondDate, data)
+        activate report
+        deactivate report
+
+        ctrl->reportMapper: create()
+        activate reportMapper
+        reportMapper->reportDTO: create()
+        activate reportDTO
+        reportMapper->reportDTO: toDTO(report)
+        deactivate reportDTO
+        deactivate reportMapper
+
+
+        deactivate ctrl
+
+        ui-->sm: Shows the report done and informs the Sales Manager \n about the success of the operation.
+        deactivate ui
+
+@enduml

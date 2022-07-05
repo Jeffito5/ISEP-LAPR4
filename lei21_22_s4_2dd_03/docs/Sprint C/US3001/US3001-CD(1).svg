@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="888px" preserveAspectRatio="none" style="width:1140px;height:888px;background:#FFFFFF;" version="1.1" viewBox="0 0 1140 888" width="1140px" zoomAndPan="magnify"><defs/><g><rect height="27.6094" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="263" x="431.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="253" x="436.5" y="24.5332">US3001 - Class Diagram 1 (Question)</text><!--MD5=[8f842bfeaad9a5a9d972e3aae5481cc3]
+class CreateQuestionUI--><g id="elem_CreateQuestionUI"><rect codeLine="4" fill="#F1F1F1" height="48" id="CreateQuestionUI" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="144" x="197.5" y="45.6094"/><ellipse cx="212.5" cy="61.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M214.5,58.1094 Q214.7031,57.6094 214.9375,57.3594 Q215.1719,57.1094 215.4375,57.1094 Q215.9063,57.1094 216.2031,57.3906 Q216.5,57.6719 216.5,58.3281 L216.5,59.8906 Q216.5,60.5469 216.2188,60.8281 Q215.9375,61.1094 215.5,61.1094 Q215.1094,61.1094 214.8594,60.9375 Q214.6094,60.7656 214.5,60.3125 Q214.4531,60 214.2813,59.8281 Q213.9688,59.5 213.4063,59.3125 Q212.8438,59.1094 212.2813,59.1094 Q211.5781,59.1094 210.9844,59.3906 Q210.4063,59.6719 209.9531,60.2969 Q209.5,60.9219 209.5,61.7813 L209.5,62.7031 Q209.5,63.7344 210.3438,64.4219 Q211.1875,65.1094 212.6875,65.1094 Q213.5781,65.1094 214.2031,64.9063 Q214.5625,64.7969 214.9688,64.4375 Q215.2344,64.2344 215.375,64.1719 Q215.5156,64.1094 215.6875,64.1094 Q216.0156,64.1094 216.25,64.375 Q216.5,64.625 216.5,64.9844 Q216.5,65.3281 216.1563,65.7344 Q215.6563,66.3281 214.8594,66.6563 Q213.8125,67.1094 212.5313,67.1094 Q211.0313,67.1094 209.8281,66.5156 Q208.8594,66.0469 208.1719,65.0313 Q207.5,64.0156 207.5,62.8125 L207.5,61.7188 Q207.5,60.4688 208.0938,59.375 Q208.7031,58.2813 209.75,57.7031 Q210.8125,57.1094 212,57.1094 Q212.7188,57.1094 213.3438,57.3594 Q213.9688,57.6094 214.5,58.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="226.5" y="67.3379">CreateQuestionUI</text><line style="stroke:#181818;stroke-width:0.5;" x1="198.5" x2="340.5" y1="77.6094" y2="77.6094"/><line style="stroke:#181818;stroke-width:0.5;" x1="198.5" x2="340.5" y1="85.6094" y2="85.6094"/></g><!--MD5=[2be66aef99e074e5314aefe27da75651]
+class CreateQuestionController--><g id="elem_CreateQuestionController"><rect codeLine="6" fill="#F1F1F1" height="96.8281" id="CreateQuestionController" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="170.5" y="153.6094"/><ellipse cx="187.3" cy="169.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M189.3,166.1094 Q189.5031,165.6094 189.7375,165.3594 Q189.9719,165.1094 190.2375,165.1094 Q190.7063,165.1094 191.0031,165.3906 Q191.3,165.6719 191.3,166.3281 L191.3,167.8906 Q191.3,168.5469 191.0188,168.8281 Q190.7375,169.1094 190.3,169.1094 Q189.9094,169.1094 189.6594,168.9375 Q189.4094,168.7656 189.3,168.3125 Q189.2531,168 189.0813,167.8281 Q188.7688,167.5 188.2063,167.3125 Q187.6438,167.1094 187.0813,167.1094 Q186.3781,167.1094 185.7844,167.3906 Q185.2063,167.6719 184.7531,168.2969 Q184.3,168.9219 184.3,169.7813 L184.3,170.7031 Q184.3,171.7344 185.1438,172.4219 Q185.9875,173.1094 187.4875,173.1094 Q188.3781,173.1094 189.0031,172.9063 Q189.3625,172.7969 189.7688,172.4375 Q190.0344,172.2344 190.175,172.1719 Q190.3156,172.1094 190.4875,172.1094 Q190.8156,172.1094 191.05,172.375 Q191.3,172.625 191.3,172.9844 Q191.3,173.3281 190.9563,173.7344 Q190.4563,174.3281 189.6594,174.6563 Q188.6125,175.1094 187.3313,175.1094 Q185.8313,175.1094 184.6281,174.5156 Q183.6594,174.0469 182.9719,173.0313 Q182.3,172.0156 182.3,170.8125 L182.3,169.7188 Q182.3,168.4688 182.8938,167.375 Q183.5031,166.2813 184.55,165.7031 Q185.6125,165.1094 186.8,165.1094 Q187.5188,165.1094 188.1438,165.3594 Q188.7688,165.6094 189.3,166.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="201.7" y="175.3379">CreateQuestionController</text><line style="stroke:#181818;stroke-width:0.5;" x1="171.5" x2="367.5" y1="185.6094" y2="185.6094"/><ellipse cx="181.5" cy="218.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="190.5" y="225.752">CreateQuestionController()</text><ellipse cx="181.5" cy="235.8281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="190.5" y="243.3613">createQuestion(...)</text><line style="stroke:#181818;stroke-width:1.0;" x1="171.5" x2="242.5" y1="202.4141" y2="202.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="242.5" y="207.6426">Methods</text><line style="stroke:#181818;stroke-width:1.0;" x1="296.5" x2="367.5" y1="202.4141" y2="202.4141"/></g><!--MD5=[5301509e5b784a50c1c4ce9967badd46]
+class JPARepository--><g id="elem_JPARepository"><rect codeLine="13" fill="#F1F1F1" height="79.2188" id="JPARepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="7" y="407.6094"/><ellipse cx="22" cy="423.6094" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M23.75,425.1094 L20.4531,425.1094 L20.0156,426.1094 L20.0156,426.1094 L20.4844,426.1094 L21,426.7344 L21,427.1094 L21,427.4844 L20.4844,428.1094 L20.0156,428.1094 L18.125,428.1094 L17.5156,428.1094 L17,427.4844 L17,427.1094 L17,426.7344 L17.5156,426.1094 L18.125,426.1094 L20.4375,420.1094 L19.5625,420.1094 L18.5156,420.1094 L18,419.4844 L18,419.1094 L18,418.7344 L18.5156,418.1094 L19.5625,418.1094 L23.2344,418.1094 L25.9219,426.1094 L26.4844,426.1094 L26.4844,426.1094 L27,426.7344 L27,427.1094 L27,427.4844 L26.4844,428.1094 L25.9219,428.1094 L24.0313,428.1094 L23.5156,428.1094 L23,427.4844 L23,427.1094 L23,426.7344 L23.5156,426.1094 L24.0313,426.1094 L24.0313,426.1094 L23.75,425.1094 Z M23.2031,423.1094 L22,419.5313 L20.9688,423.1094 L23.2031,423.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="93" x="36" y="429.3379">JPARepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="131" y1="439.6094" y2="439.6094"/><ellipse cx="18" cy="472.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="27" y="479.752">add(entity)</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="42.5" y1="456.4141" y2="456.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="42.5" y="461.6426">Methods</text><line style="stroke:#181818;stroke-width:1.0;" x1="96.5" x2="131" y1="456.4141" y2="456.4141"/></g><!--MD5=[057d703b83cb645378996a73205c3b84]
+class QuestionBuilder--><g id="elem_QuestionBuilder"><rect codeLine="18" fill="#F1F1F1" height="272.9219" id="QuestionBuilder" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="204" x="167.5" y="310.6094"/><ellipse cx="214.75" cy="326.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M216.75,323.1094 Q216.9531,322.6094 217.1875,322.3594 Q217.4219,322.1094 217.6875,322.1094 Q218.1563,322.1094 218.4531,322.3906 Q218.75,322.6719 218.75,323.3281 L218.75,324.8906 Q218.75,325.5469 218.4688,325.8281 Q218.1875,326.1094 217.75,326.1094 Q217.3594,326.1094 217.1094,325.9375 Q216.8594,325.7656 216.75,325.3125 Q216.7031,325 216.5313,324.8281 Q216.2188,324.5 215.6563,324.3125 Q215.0938,324.1094 214.5313,324.1094 Q213.8281,324.1094 213.2344,324.3906 Q212.6563,324.6719 212.2031,325.2969 Q211.75,325.9219 211.75,326.7813 L211.75,327.7031 Q211.75,328.7344 212.5938,329.4219 Q213.4375,330.1094 214.9375,330.1094 Q215.8281,330.1094 216.4531,329.9063 Q216.8125,329.7969 217.2188,329.4375 Q217.4844,329.2344 217.625,329.1719 Q217.7656,329.1094 217.9375,329.1094 Q218.2656,329.1094 218.5,329.375 Q218.75,329.625 218.75,329.9844 Q218.75,330.3281 218.4063,330.7344 Q217.9063,331.3281 217.1094,331.6563 Q216.0625,332.1094 214.7813,332.1094 Q213.2813,332.1094 212.0781,331.5156 Q211.1094,331.0469 210.4219,330.0313 Q209.75,329.0156 209.75,327.8125 L209.75,326.7188 Q209.75,325.4688 210.3438,324.375 Q210.9531,323.2813 212,322.7031 Q213.0625,322.1094 214.25,322.1094 Q214.9688,322.1094 215.5938,322.3594 Q216.2188,322.6094 216.75,323.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="235.25" y="332.3379">QuestionBuilder</text><line style="stroke:#181818;stroke-width:0.5;" x1="168.5" x2="370.5" y1="342.6094" y2="342.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="350.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="187.5" y="361.1426">questionId</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="368.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="187.5" y="378.752">questionText</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="385.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="187.5" y="396.3613">instructions</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="403.4375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="187.5" y="413.9707">obligatoriness</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="421.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="187.5" y="431.5801">info</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175.5" y="438.6563"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="187.5" y="449.1895">type</text><ellipse cx="178.5" cy="480.875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="187.5" y="488.4082">withId(id)</text><ellipse cx="178.5" cy="498.4844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="187.5" y="506.0176">withText(text)</text><ellipse cx="178.5" cy="516.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="187.5" y="523.627">withInstructions(instructions)</text><ellipse cx="178.5" cy="533.7031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="187.5" y="541.2363">withInfo(info)</text><ellipse cx="178.5" cy="551.3125" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="187.5" y="558.8457">withType(type)</text><ellipse cx="178.5" cy="568.9219" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="187.5" y="576.4551">build()</text><line style="stroke:#181818;stroke-width:1.0;" x1="168.5" x2="242.5" y1="465.0703" y2="465.0703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="242.5" y="470.2988">Methods</text><line style="stroke:#181818;stroke-width:1.0;" x1="296.5" x2="370.5" y1="465.0703" y2="465.0703"/></g><!--MD5=[612a8bdae8d52d1733a2d00cd54fc954]
+class Obligatoriness--><g id="elem_Obligatoriness"><rect codeLine="34" fill="#F1F1F1" height="100.8281" id="Obligatoriness" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="123" x="407" y="396.6094"/><ellipse cx="422" cy="412.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M420.5,413.6094 L420.5,415.6094 L424.5,415.6094 L424.5,414.6094 L424.5,414.125 L425.125,413.6094 L425.5,413.6094 L425.875,413.6094 L426.5,414.125 L426.5,414.6094 L426.5,417.6094 L418.5,417.6094 L418.0156,417.6094 L417.5,416.9844 L417.5,416.6094 L417.5,416.2344 L418.0156,415.6094 L418.5,415.6094 L418.5,415.6094 L418.5,409.6094 L418.5,409.6094 L418.0156,409.6094 L417.5,408.9844 L417.5,408.6094 L417.5,408.2344 L418.0156,407.6094 L418.5,407.6094 L426.5,407.6094 L426.5,410.6094 L426.5,411.0938 L425.875,411.6094 L425.5,411.6094 L425.125,411.6094 L424.5,411.0938 L424.5,410.6094 L424.5,409.6094 L420.5,409.6094 L420.5,411.6094 L421.5,411.6094 L421.5,411.125 L421.5,411.125 L422.125,410.6094 L422.5,410.6094 L422.875,410.6094 L423.5,411.125 L423.5,411.6094 L423.5,413.6094 L423.5,414.0938 L422.875,414.6094 L422.875,414.6094 L422.5,414.6094 L422.125,414.6094 L421.5,414.0938 L421.5,414.0938 L421.5,413.6094 L420.5,413.6094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="436" y="418.3379">Obligatoriness</text><line style="stroke:#181818;stroke-width:0.5;" x1="408" x2="529" y1="428.6094" y2="428.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="413" y="447.1426">MANDATORY</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="413" y="464.752">OPTIONAL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="413" y="482.3613">CONDITIONAL</text><line style="stroke:#181818;stroke-width:0.5;" x1="408" x2="529" y1="489.4375" y2="489.4375"/></g><!--MD5=[fc7123defb831ecdd44b2d9bcef6cceb]
+class Question--><g id="elem_Question"><rect codeLine="40" fill="#F1F1F1" height="237.7031" id="Question" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="113" x="516" y="643.6094"/><ellipse cx="541.8" cy="659.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M543.8,656.1094 Q544.0031,655.6094 544.2375,655.3594 Q544.4719,655.1094 544.7375,655.1094 Q545.2063,655.1094 545.5031,655.3906 Q545.8,655.6719 545.8,656.3281 L545.8,657.8906 Q545.8,658.5469 545.5188,658.8281 Q545.2375,659.1094 544.8,659.1094 Q544.4094,659.1094 544.1594,658.9375 Q543.9094,658.7656 543.8,658.3125 Q543.7531,658 543.5813,657.8281 Q543.2688,657.5 542.7063,657.3125 Q542.1438,657.1094 541.5813,657.1094 Q540.8781,657.1094 540.2844,657.3906 Q539.7063,657.6719 539.2531,658.2969 Q538.8,658.9219 538.8,659.7813 L538.8,660.7031 Q538.8,661.7344 539.6438,662.4219 Q540.4875,663.1094 541.9875,663.1094 Q542.8781,663.1094 543.5031,662.9063 Q543.8625,662.7969 544.2688,662.4375 Q544.5344,662.2344 544.675,662.1719 Q544.8156,662.1094 544.9875,662.1094 Q545.3156,662.1094 545.55,662.375 Q545.8,662.625 545.8,662.9844 Q545.8,663.3281 545.4563,663.7344 Q544.9563,664.3281 544.1594,664.6563 Q543.1125,665.1094 541.8313,665.1094 Q540.3313,665.1094 539.1281,664.5156 Q538.1594,664.0469 537.4719,663.0313 Q536.8,662.0156 536.8,660.8125 L536.8,659.7188 Q536.8,658.4688 537.3938,657.375 Q538.0031,656.2813 539.05,655.7031 Q540.1125,655.1094 541.3,655.1094 Q542.0188,655.1094 542.6438,655.3594 Q543.2688,655.6094 543.8,656.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="558.2" y="665.3379">Question</text><line style="stroke:#181818;stroke-width:0.5;" x1="517" x2="628" y1="675.6094" y2="675.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="524" y="683.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="536" y="694.1426">questionId</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="524" y="701.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="536" y="711.752">questionText</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="524" y="718.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="536" y="729.3613">instructions</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="524" y="736.4375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="536" y="746.9707">extra info</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="524" y="754.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="536" y="764.5801">options</text><ellipse cx="527" cy="796.2656" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="536" y="803.7988">isOptional()</text><ellipse cx="527" cy="813.875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="536" y="821.4082">isMandatory()</text><ellipse cx="527" cy="831.4844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="536" y="839.0176">toString()</text><ellipse cx="527" cy="849.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="536" y="856.627">options()</text><ellipse cx="527" cy="866.7031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="536" y="874.2363">type()</text><line style="stroke:#181818;stroke-width:1.0;" x1="517" x2="545.5" y1="780.4609" y2="780.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="545.5" y="785.6895">Methods</text><line style="stroke:#181818;stroke-width:1.0;" x1="599.5" x2="628" y1="780.4609" y2="780.4609"/></g><!--MD5=[67766dc9f5cbe90f7ae01f665fcb398e]
+class QuestionMapper--><g id="elem_QuestionMapper"><rect codeLine="54" fill="#F1F1F1" height="79.2188" id="QuestionMapper" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="137" x="996" y="407.6094"/><ellipse cx="1011" cy="423.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1013,420.1094 Q1013.2031,419.6094 1013.4375,419.3594 Q1013.6719,419.1094 1013.9375,419.1094 Q1014.4063,419.1094 1014.7031,419.3906 Q1015,419.6719 1015,420.3281 L1015,421.8906 Q1015,422.5469 1014.7188,422.8281 Q1014.4375,423.1094 1014,423.1094 Q1013.6094,423.1094 1013.3594,422.9375 Q1013.1094,422.7656 1013,422.3125 Q1012.9531,422 1012.7813,421.8281 Q1012.4688,421.5 1011.9063,421.3125 Q1011.3438,421.1094 1010.7813,421.1094 Q1010.0781,421.1094 1009.4844,421.3906 Q1008.9063,421.6719 1008.4531,422.2969 Q1008,422.9219 1008,423.7813 L1008,424.7031 Q1008,425.7344 1008.8438,426.4219 Q1009.6875,427.1094 1011.1875,427.1094 Q1012.0781,427.1094 1012.7031,426.9063 Q1013.0625,426.7969 1013.4688,426.4375 Q1013.7344,426.2344 1013.875,426.1719 Q1014.0156,426.1094 1014.1875,426.1094 Q1014.5156,426.1094 1014.75,426.375 Q1015,426.625 1015,426.9844 Q1015,427.3281 1014.6563,427.7344 Q1014.1563,428.3281 1013.3594,428.6563 Q1012.3125,429.1094 1011.0313,429.1094 Q1009.5313,429.1094 1008.3281,428.5156 Q1007.3594,428.0469 1006.6719,427.0313 Q1006,426.0156 1006,424.8125 L1006,423.7188 Q1006,422.4688 1006.5938,421.375 Q1007.2031,420.2813 1008.25,419.7031 Q1009.3125,419.1094 1010.5,419.1094 Q1011.2188,419.1094 1011.8438,419.3594 Q1012.4688,419.6094 1013,420.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="1025" y="429.3379">QuestionMapper</text><line style="stroke:#181818;stroke-width:0.5;" x1="997" x2="1132" y1="439.6094" y2="439.6094"/><ellipse cx="1007" cy="472.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="1016" y="479.752">toDTO(question)</text><line style="stroke:#181818;stroke-width:1.0;" x1="997" x2="1037.5" y1="456.4141" y2="456.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="1037.5" y="461.6426">Mehotds</text><line style="stroke:#181818;stroke-width:1.0;" x1="1091.5" x2="1132" y1="456.4141" y2="456.4141"/></g><!--MD5=[c802f1427b4977f3680f5ce962804e21]
+class QuestionDTO--><g id="elem_QuestionDTO"><rect codeLine="59" fill="#F1F1F1" height="100.8281" id="QuestionDTO" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="1005" y="712.1094"/><ellipse cx="1020" cy="728.1094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1022,724.6094 Q1022.2031,724.1094 1022.4375,723.8594 Q1022.6719,723.6094 1022.9375,723.6094 Q1023.4063,723.6094 1023.7031,723.8906 Q1024,724.1719 1024,724.8281 L1024,726.3906 Q1024,727.0469 1023.7188,727.3281 Q1023.4375,727.6094 1023,727.6094 Q1022.6094,727.6094 1022.3594,727.4375 Q1022.1094,727.2656 1022,726.8125 Q1021.9531,726.5 1021.7813,726.3281 Q1021.4688,726 1020.9063,725.8125 Q1020.3438,725.6094 1019.7813,725.6094 Q1019.0781,725.6094 1018.4844,725.8906 Q1017.9063,726.1719 1017.4531,726.7969 Q1017,727.4219 1017,728.2813 L1017,729.2031 Q1017,730.2344 1017.8438,730.9219 Q1018.6875,731.6094 1020.1875,731.6094 Q1021.0781,731.6094 1021.7031,731.4063 Q1022.0625,731.2969 1022.4688,730.9375 Q1022.7344,730.7344 1022.875,730.6719 Q1023.0156,730.6094 1023.1875,730.6094 Q1023.5156,730.6094 1023.75,730.875 Q1024,731.125 1024,731.4844 Q1024,731.8281 1023.6563,732.2344 Q1023.1563,732.8281 1022.3594,733.1563 Q1021.3125,733.6094 1020.0313,733.6094 Q1018.5313,733.6094 1017.3281,733.0156 Q1016.3594,732.5469 1015.6719,731.5313 Q1015,730.5156 1015,729.3125 L1015,728.2188 Q1015,726.9688 1015.5938,725.875 Q1016.2031,724.7813 1017.25,724.2031 Q1018.3125,723.6094 1019.5,723.6094 Q1020.2188,723.6094 1020.8438,723.8594 Q1021.4688,724.1094 1022,724.6094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="1034" y="733.8379">QuestionDTO</text><line style="stroke:#181818;stroke-width:0.5;" x1="1006" x2="1123" y1="744.1094" y2="744.1094"/><ellipse cx="1016" cy="755.1094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="1025" y="762.6426">questionId</text><ellipse cx="1016" cy="772.7188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="1025" y="780.252">toString</text><ellipse cx="1016" cy="790.3281" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="1025" y="797.8613">options</text><line style="stroke:#181818;stroke-width:0.5;" x1="1006" x2="1123" y1="804.9375" y2="804.9375"/></g><!--MD5=[1ada4a370fc31d10353a46a56e785754]
+class QuestionType--><g id="elem_QuestionType"><rect codeLine="65" fill="#F1F1F1" height="188.875" id="QuestionType" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="220" x="565.5" y="352.6094"/><ellipse cx="626.75" cy="368.6094" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M625.25,369.6094 L625.25,371.6094 L629.25,371.6094 L629.25,370.6094 L629.25,370.125 L629.875,369.6094 L630.25,369.6094 L630.625,369.6094 L631.25,370.125 L631.25,370.6094 L631.25,373.6094 L623.25,373.6094 L622.7656,373.6094 L622.25,372.9844 L622.25,372.6094 L622.25,372.2344 L622.7656,371.6094 L623.25,371.6094 L623.25,371.6094 L623.25,365.6094 L623.25,365.6094 L622.7656,365.6094 L622.25,364.9844 L622.25,364.6094 L622.25,364.2344 L622.7656,363.6094 L623.25,363.6094 L631.25,363.6094 L631.25,366.6094 L631.25,367.0938 L630.625,367.6094 L630.25,367.6094 L629.875,367.6094 L629.25,367.0938 L629.25,366.6094 L629.25,365.6094 L625.25,365.6094 L625.25,367.6094 L626.25,367.6094 L626.25,367.125 L626.25,367.125 L626.875,366.6094 L627.25,366.6094 L627.625,366.6094 L628.25,367.125 L628.25,367.6094 L628.25,369.6094 L628.25,370.0938 L627.625,370.6094 L627.625,370.6094 L627.25,370.6094 L626.875,370.6094 L626.25,370.0938 L626.25,370.0938 L626.25,369.6094 L625.25,369.6094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="647.25" y="374.3379">QuestionType</text><line style="stroke:#181818;stroke-width:0.5;" x1="566.5" x2="784.5" y1="384.6094" y2="384.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="571.5" y="403.1426">FreeTextQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="571.5" y="420.752">NumericQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="571.5" y="438.3613">SingleChoiceQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="571.5" y="455.9707">SingleChoiceWithInputQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="571.5" y="473.5801">MultipleChoiceQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="571.5" y="491.1895">MultipleChoiceWithInputQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="571.5" y="508.7988">SortingQuestion</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="571.5" y="526.4082">ScalingQuestion</text><line style="stroke:#181818;stroke-width:0.5;" x1="566.5" x2="784.5" y1="533.4844" y2="533.4844"/></g><!--MD5=[a030fa97ffb865708cae79f6847e8968]
+class Condition--><g id="elem_Condition"><rect codeLine="77" fill="#F1F1F1" height="83.2188" id="Condition" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="820.5" y="405.6094"/><ellipse cx="857.1" cy="421.6094" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M859.1,418.1094 Q859.3031,417.6094 859.5375,417.3594 Q859.7719,417.1094 860.0375,417.1094 Q860.5063,417.1094 860.8031,417.3906 Q861.1,417.6719 861.1,418.3281 L861.1,419.8906 Q861.1,420.5469 860.8188,420.8281 Q860.5375,421.1094 860.1,421.1094 Q859.7094,421.1094 859.4594,420.9375 Q859.2094,420.7656 859.1,420.3125 Q859.0531,420 858.8813,419.8281 Q858.5688,419.5 858.0063,419.3125 Q857.4438,419.1094 856.8813,419.1094 Q856.1781,419.1094 855.5844,419.3906 Q855.0063,419.6719 854.5531,420.2969 Q854.1,420.9219 854.1,421.7813 L854.1,422.7031 Q854.1,423.7344 854.9438,424.4219 Q855.7875,425.1094 857.2875,425.1094 Q858.1781,425.1094 858.8031,424.9063 Q859.1625,424.7969 859.5688,424.4375 Q859.8344,424.2344 859.975,424.1719 Q860.1156,424.1094 860.2875,424.1094 Q860.6156,424.1094 860.85,424.375 Q861.1,424.625 861.1,424.9844 Q861.1,425.3281 860.7563,425.7344 Q860.2563,426.3281 859.4594,426.6563 Q858.4125,427.1094 857.1313,427.1094 Q855.6313,427.1094 854.4281,426.5156 Q853.4594,426.0469 852.7719,425.0313 Q852.1,424.0156 852.1,422.8125 L852.1,421.7188 Q852.1,420.4688 852.6938,419.375 Q853.3031,418.2813 854.35,417.7031 Q855.4125,417.1094 856.6,417.1094 Q857.3188,417.1094 857.9438,417.3594 Q858.5688,417.6094 859.1,418.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="875.9" y="427.3379">Condition</text><line style="stroke:#181818;stroke-width:0.5;" x1="821.5" x2="959.5" y1="437.6094" y2="437.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="828.5" y="445.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="840.5" y="456.1426">conditionQuestion</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="828.5" y="463.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="840.5" y="473.752">conditionOption</text><line style="stroke:#181818;stroke-width:0.5;" x1="821.5" x2="959.5" y1="480.8281" y2="480.8281"/></g><!--MD5=[d4f24762763a8040725f033f2a9fad05]
+link CreateQuestionUI to CreateQuestionController--><g id="link_CreateQuestionUI_CreateQuestionController"><path codeLine="86" d="M269.5,93.6394 C269.5,108.7594 269.5,129.1694 269.5,148.1394 " fill="none" id="CreateQuestionUI-to-CreateQuestionController" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="269.5,153.4494,273.5,144.4494,269.5,148.4494,265.5,144.4494,269.5,153.4494" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[63ac56ff02cc3c7c51f64c48461b8da2]
+link CreateQuestionController to JPARepository--><g id="link_CreateQuestionController_JPARepository"><path codeLine="89" d="M209.27,250.6494 C188.98,268.2694 167.06,289.1994 149.5,310.6094 C126.17,339.0694 105.24,375.0894 90.64,402.8394 " fill="none" id="CreateQuestionController-to-JPARepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="88.18,407.5694,95.8935,401.4455,90.4958,403.138,88.8033,397.7403,88.18,407.5694" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4f5d84e394c9611b61a429e7deb98e00]
+link CreateQuestionController to QuestionBuilder--><g id="link_CreateQuestionController_QuestionBuilder"><path codeLine="90" d="M269.5,250.8294 C269.5,266.8094 269.5,285.5294 269.5,304.9494 " fill="none" id="CreateQuestionController-to-QuestionBuilder" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="269.5,310.4394,273.5,301.4394,269.5,305.4394,265.5,301.4394,269.5,310.4394" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9a7d8cbaee3525dfd883fd23781546d0]
+link CreateQuestionController to QuestionMapper--><g id="link_CreateQuestionController_QuestionMapper"><path codeLine="91" d="M368.51,208.0794 C539.12,218.2694 879.76,246.2194 978.5,310.6094 C1011.73,332.2794 1034.6,371.7594 1048.35,402.5394 " fill="none" id="CreateQuestionController-to-QuestionMapper" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1050.48,407.3994,1050.5228,397.5506,1048.4692,402.8215,1043.1982,400.7679,1050.48,407.3994" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dd5ecb0067ecb1807034f78c05073758]
+link QuestionMapper to QuestionDTO--><g id="link_QuestionMapper_QuestionDTO"><path codeLine="93" d="M1064.5,486.8694 C1064.5,542.0794 1064.5,643.6494 1064.5,706.6194 " fill="none" id="QuestionMapper-to-QuestionDTO" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1064.5,711.8394,1068.5,702.8394,1064.5,706.8394,1060.5,702.8394,1064.5,711.8394" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a688dcb2db5c455611ce88d1293f7679]
+link QuestionBuilder to Question--><g id="link_QuestionBuilder_Question"><path codeLine="95" d="M371.72,564.6694 C377.69,571.1194 383.64,577.4694 389.5,583.6094 C429.21,625.2194 475.68,670.3794 511.86,704.8094 " fill="none" id="QuestionBuilder-to-Question" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="515.78,708.5294,512.0044,699.433,512.1529,705.0879,506.498,705.2364,515.78,708.5294" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[008fbf0bbdc74b769998e7496b0f896a]
+reverse link QuestionType to Question--><g id="link_QuestionType_Question"><path codeLine="98" d="M643.13,546.6394 C633.04,577.3394 621.81,611.5194 611.33,643.4194 " fill="none" id="QuestionType-backto-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="644.74,541.7494,638.1387,549.0585,643.1846,546.5013,645.7418,551.5472,644.74,541.7494" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a9d3f958036e5bba69252012d6b9d2b7]
+reverse link Obligatoriness to Question--><g id="link_Obligatoriness_Question"><path codeLine="99" d="M486.68,502.9194 C499.55,541.6994 517.29,595.1994 533.31,643.4794 " fill="none" id="Obligatoriness-backto-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="484.98,497.7894,484.0136,507.5907,486.5526,502.5356,491.6076,505.0746,484.98,497.7894" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a2ed7f62ad10e4a612068ee58ceef002]
+reverse link Condition to Question--><g id="link_Condition_Question"><path codeLine="100" d="M866.36,493.2494 C850.33,520.9694 827.66,556.2794 802.5,583.6094 C750.35,640.2594 678.71,692.5794 629.31,725.6294 " fill="none" id="Condition-backto-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="868.88,488.8694,860.9233,494.6737,866.3855,493.2027,867.8565,498.6649,868.88,488.8694" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f74c5d2c25e8429be43e4fdf60e859b7]
+@startuml
+
+title US3001 - Class Diagram 1 (Question)
+
+class CreateQuestionUI
+
+class CreateQuestionController{
+- -Methods- -
++ CreateQuestionController()
++ createQuestion(...)
+}
+
+
+abstract JPARepository {
+- -Methods- -
++ add(entity)
+}
+
+class QuestionBuilder{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- info
+- type
+- -Methods- -
++ withId(id)
++ withText(text)
++ withInstructions(instructions)
++ withInfo(info)
++ withType(type)
++ build()
+}
+
+enum Obligatoriness{
+MANDATORY
+OPTIONAL
+CONDITIONAL
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- extra info
+- options
+- -Methods- -
++ isOptional()
++ isMandatory()
++ toString()
++ options()
++ type()
+}
+
+class QuestionMapper{
+- -Mehotds- -
++ toDTO(question)
+}
+
+class QuestionDTO{
++ questionId
++ toString
++ options
+}
+
+enum QuestionType{
+FreeTextQuestion
+NumericQuestion
+SingleChoiceQuestion
+SingleChoiceWithInputQuestion
+MultipleChoiceQuestion
+MultipleChoiceWithInputQuestion
+SortingQuestion
+ScalingQuestion
+}
+
+
+class Condition{
+- conditionQuestion
+- conditionOption
+}
+
+
+
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -UI
+CreateQuestionUI ..> CreateQuestionController
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -Controller
+CreateQuestionController ..> JPARepository
+CreateQuestionController ..> QuestionBuilder
+CreateQuestionController ..> QuestionMapper
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -Mapper / DTO
+QuestionMapper ..> QuestionDTO
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -Builder
+QuestionBuilder ..> Question
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -Question
+QuestionType <- - Question
+Obligatoriness <- - Question
+Condition <- -Question
+
+@enduml
+
+@startuml
+
+title US3001 - Class Diagram 1 (Question)
+
+class CreateQuestionUI
+
+class CreateQuestionController{
+- -Methods- -
++ CreateQuestionController()
++ createQuestion(...)
+}
+
+
+abstract JPARepository {
+- -Methods- -
++ add(entity)
+}
+
+class QuestionBuilder{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- info
+- type
+- -Methods- -
++ withId(id)
++ withText(text)
++ withInstructions(instructions)
++ withInfo(info)
++ withType(type)
++ build()
+}
+
+enum Obligatoriness{
+MANDATORY
+OPTIONAL
+CONDITIONAL
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- extra info
+- options
+- -Methods- -
++ isOptional()
++ isMandatory()
++ toString()
++ options()
++ type()
+}
+
+class QuestionMapper{
+- -Mehotds- -
++ toDTO(question)
+}
+
+class QuestionDTO{
++ questionId
++ toString
++ options
+}
+
+enum QuestionType{
+FreeTextQuestion
+NumericQuestion
+SingleChoiceQuestion
+SingleChoiceWithInputQuestion
+MultipleChoiceQuestion
+MultipleChoiceWithInputQuestion
+SortingQuestion
+ScalingQuestion
+}
+
+
+class Condition{
+- conditionQuestion
+- conditionOption
+}
+
+
+
+
+CreateQuestionUI ..> CreateQuestionController
+
+CreateQuestionController ..> JPARepository
+CreateQuestionController ..> QuestionBuilder
+CreateQuestionController ..> QuestionMapper
+QuestionMapper ..> QuestionDTO
+QuestionBuilder ..> Question
+
+QuestionType <- - Question
+Obligatoriness <- - Question
+Condition <- -Question
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,75 @@
+@startuml
+title US3001 - Sequence Diagram 1 (Question)
+
+autonumber
+
+actor "Sales Manages" as manager
+
+activate manager
+
+    manager -> ":CreateQuestionUI" as ui:wants to create a new question.
+    activate ui
+        note right: (Data requests to Manager\n omitted)
+        ui -> "controller:CreateQuestionController" as controller: createQuestion(...)
+        activate controller
+
+            controller --> ":Validator":validate(textFile,questionType)
+            activate ":Validator"
+             note right: Connection with\nANTLR
+            deactivate ":Validator"
+
+            controller --> "builder:QuestionBuilder" as builder**:create()
+            controller -> builder:withId(id)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withText(text)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withInstructions(instructions)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withObligatoriness(obligatoriness)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withInfo(info)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withType(type)
+            activate builder
+            deactivate builder
+
+            controller -> builder:build()
+            activate builder
+                builder --> "question:Question" as question**:create(...)
+                activate question
+                question --> builder : question
+                deactivate question
+               builder-->controller: question
+            deactivate builder
+
+            controller -> "repo:JPARepository" as repo: add(question)
+            activate repo
+            deactivate repo
+
+
+            controller -> ":QuestionMapper" as mapper:toDTO(question)
+            activate mapper
+                mapper --> "dto:QuestionDTO" as dto**: create(...)
+                activate dto
+                    dto--> mapper:dto
+                deactivate dto
+                mapper --> controller:dto
+            deactivate mapper
+            controller --> ui:dto
+        deactivate controller
+        ui -> dto: toString
+        activate dto
+        deactivate dto
+        ui --> manager: inform operation success.
+    deactivate ui
+@enduml

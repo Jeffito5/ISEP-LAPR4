@@ -1,0 +1,213 @@
+@startuml
+
+'Roles
+
+
+class Customer
+{
+    id
+    name
+    VAT
+    email
+    phone number
+    --optional--
+    birthdate
+    gender
+    billing addresses
+    delivering addresses
+}
+
+class "Sales Clerk"
+
+class "Sales Manager"
+
+class "Warehouse Employee"
+
+class Administrator
+
+'Questionnaire
+
+class Questionnaire
+{
+    id
+    title
+    welcome message
+    list of sections
+    final message
+    target audience
+    specification
+}
+
+class Section
+{
+    id
+    title
+    description
+    obligatoriness
+    repeatability
+    content
+}
+
+class Question
+{
+    id
+    text
+    instruction
+    type
+    obligatoriness
+    extra info
+}
+
+class Report?????????????
+
+'SPOMS
+
+class Product
+{
+    id
+    short description
+    extended description
+    technical description
+    set of photos
+    brand name
+    reference
+    barcode
+    production code (Optional)
+    price
+    tax
+}
+
+class "Shopping Cart"
+{
+    products
+    quantities
+}
+
+class Category
+{
+    code
+    description
+    super category code(Optional)
+}
+
+class Catalog
+
+
+
+class Order
+{
+    id
+    dateTime
+    billing address
+    delivering address
+    products
+    quantities
+    unitary prices
+    taxes
+    total ammount
+    shipment method
+    shipment cost
+    volume
+    weight
+    payment method
+    states
+    id clerk / id client ??????
+}
+
+
+class Warehouse
+{
+    id
+    name
+    length
+    width
+    square
+    unit
+    aisles
+    AVGDocks
+    (Location) output place
+}
+
+
+class Bin
+{
+    id
+    length
+    width
+    weight
+    location
+}
+
+class "Product Location"
+{
+    aisle id
+    row id
+    shelf id
+}
+
+class Aisles
+{
+    id
+    length
+    width
+    depth
+    accessibility
+    rows??
+}
+
+class Row
+{
+    id
+    begin
+    end
+    shelves??
+}
+
+
+class Shelf
+{
+    id
+    height???
+    bins??
+}
+
+
+
+
+
+'AGVS
+
+class AGV
+{
+    id
+    short description
+    model
+    max weight
+    max volume
+    base location
+    autonomy
+    current task
+}
+
+class Task
+
+class "<Vo> AGV Location"
+{
+    x
+    y
+}
+
+
+
+class "Country??????????????????????"
+
+
+
+
+
+
+'Relationships
+Product "*" -- "1"Category:> presented under
+
+
+@enduml

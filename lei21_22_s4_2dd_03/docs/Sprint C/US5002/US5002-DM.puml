@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Warehouse
+
+
+class AGV
+
+class Plant
+
+Warehouse"1" --"*" AGV :> has
+Plant"1..*" --"1" Warehouse :> has
+Plant"1" --"*" AGV :> has
+@enduml

@@ -1,0 +1,89 @@
+@startuml
+title SD - Implement a basic FIFO algorithm to automatically assign tasks to AGVs
+
+        participant "WarehouseEmployee" as whe
+		participant ":AssignOrderAutomaticallyUI" as ui
+		participant ":AssignOrderAutomaticallyController" as ctrl
+		participant "orderRepository:OrderRepository" as repo
+        participant "productOrder:ProductOrder" as order
+        participant "orderMapper:OrderMapper" as orderMapper
+        participant "orderDTO:OrderDTO" as orderDTO
+        participant "agvRepository:AGVRepository" as agvRepo
+        participant "agvMapper:AGVMapper" as agvMapper
+        participant "agvDTO:agvDTO" as agvDto
+        participant "agv:AGV" as agv
+        participant "agvStatus:Status" as agvStatus
+
+        whe->ui: starts the algorithm to assign orders automatically
+        activate ui
+        ui->ctrl: addOrdersToQueue()
+        activate ctrl
+
+        ctrl->repo: listOfOrdersInAscendingOrder()
+
+        ui-->whe: Asks the warehouse employee if he wants the algorithm to assign orders periodically or not
+        whe->ui: Chooses if the algorithm is going to assign orders periodically or not
+
+        ui->ui: assignTaskAutomatically()
+
+        ui->ctrl: checkIfTimeIsCorrect(time, unitOfTime)
+        ui->ctrl: sizeOfListOfOrdersInQueue()
+        ui->ctrl: removeFirstOrderFromQueue()
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(order)
+        deactivate orderDTO
+        deactivate orderMapper
+
+        ui->ctrl: listAgvAble(order)
+        ctrl->repo:findById(id)
+        activate repo
+        deactivate repo
+        ctrl->agvRepo:isAble(order)
+        activate agvRepo
+        deactivate agvRepo
+        ctrl->agvMapper:create()
+        activate agvMapper
+        agvMapper->agvDto:create()
+        activate agvDto
+        deactivate agvDto
+        agvMapper->agvDto:toDTO(agvList)
+        activate agvDto
+        deactivate agvDto
+        deactivate agvMapper
+
+        ui->ctrl:assignOrder(agv)
+        ctrl->agvRepo:findByIdentifier(id)
+        activate agvRepo
+        deactivate agvRepo
+        ctrl->agv:assignOrder(order)
+        activate agv
+        agv->agvStatus:assignOrder(order)
+        activate agvStatus
+        agvStatus->agvStatus:changeStatus(occupied)
+        deactivate agv
+        ctrl->order:developOrder()
+        deactivate agvStatus
+        activate order
+        order->order:changeStatus(developing)
+        ui->ctrl: findProductOrderById(identifier)
+        deactivate order
+        ctrl->repo:findById(id)
+        activate repo
+        deactivate repo
+        ctrl->orderMapper: create()
+        activate orderMapper
+        orderMapper->orderDTO: create()
+        activate orderDTO
+        orderMapper->orderDTO: toDTO(order)
+        deactivate orderDTO
+        deactivate orderMapper
+
+        deactivate ctrl
+
+        ui-->whe: Assigns the tasks automatically, shows the ones assigned and informs about the success of the operation
+        deactivate ui
+
+@enduml

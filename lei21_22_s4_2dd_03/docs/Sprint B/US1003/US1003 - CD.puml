@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class CreateCustomerUI
+
+
+class CreateCustomerController {
+--Methods--
++ createCustomer(name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
+}
+
+class SalesClerk
+
+class Customer{
+..Attributes..
+-gender
+-phone number
+-billing address
+-delivery address
+-name
+-email
+-birth date
+-vat
+--Methods--
+#newCustomer(name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
++valueOf((name,email,vat,phone number,birth date,gender,billing address,delivery address,shopping cart)
+}
+
+class Address{
+..Attributes..
+-street name
+-door number
+-postal code
+-city
+-country
+}
+
+class Country{
+..Attributes..
+-name
+}
+
+abstract class JpaRepository{
+--Methods--
++add(customer)
+}
+
+CreateCustomerUI ..> CreateCustomerController
+SalesClerk ..> CreateCustomerUI
+CreateCustomerController ..> JpaRepository
+CreateCustomerController ..> Customer
+
+
+Customer "1" --> "0..*" Address
+Address "*" --> "1" Country
+
+
+@enduml

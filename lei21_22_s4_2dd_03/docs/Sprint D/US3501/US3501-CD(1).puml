@@ -1,0 +1,57 @@
+@startuml
+title Notify Customer Class Diagram
+
+interface EventDispatcher{
+--Methods--
++ subscribe(observer, events)
++ unsubscribe (observer, events)
++ unsubscribe (observer)
++ shutdown()
+}
+
+class BaseBackoffice{
+--Methods--
+- setupEventHandlers()
+- doSetupEventHandlers(dispatcher)
+}
+
+abstract BaseApplication{
+--Methods--
+- setupEventHandlers()
+- doSetupEventHandlers(dispatcher)
+}
+
+class NewSurveyWatchDog{
+--Methods--
++ onEvent()
+}
+
+interface EventHandler{
+--Methods--
++ onEvent(event)
+}
+
+class NewSurveyEvent{
+..Attributes..
+- surveyId
+--Methods--
++ id()
++ toString()
+}
+
+class NotifyCustomerController{
+--Methods--
++ notifyCustomer(event)
++ writeEmail(customer,survey)
++ verifyCustomerHistory(customer, targetAudience)
+}
+
+
+BaseBackoffice --|> BaseApplication
+BaseBackoffice --> EventDispatcher
+BaseBackoffice ..> NewSurveyWatchDog
+
+NewSurveyWatchDog ..> EventHandler
+NewSurveyWatchDog ..> NewSurveyEvent
+NewSurveyWatchDog ..>NotifyCustomerController
+@enduml

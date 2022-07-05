@@ -1,0 +1,70 @@
+@startuml
+title US3001 - Sequence Diagram 2 (Section)
+
+autonumber
+
+actor "Sales Manages" as manager
+
+activate manager
+
+    manager -> ":CreateSectionUI" as ui:wants to create a new section.
+    activate ui
+        note right: (Data requests to Manager\n omitted)
+        ui -> "controller:CreateSectionController" as controller: createSection()
+        activate controller
+
+            controller --> "builder:SectionBuilder" as builder**:create()
+            controller -> builder:withId(id)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withTitle(title)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withDescription(description)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withRepeatability(repeatability)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withQuestions(questions)
+            activate builder
+            deactivate builder
+
+            controller -> builder:withObligatoriness(obligatoriness)
+            activate builder
+            deactivate builder
+
+            controller -> builder:build()
+            activate builder
+                builder --> "section:Section" as sections**:create(...)
+                activate sections
+                sections --> builder : sections
+                deactivate sections
+               builder-->controller: sections
+            deactivate builder
+
+            controller -> "repo:JPARepository" as repo: add(section)
+            activate repo
+            deactivate repo
+
+
+            controller -> ":SectionMapper" as mapper:toDTO(section)
+            activate mapper
+                mapper --> "dto:SectionDTO" as dto**: create(...)
+                activate dto
+                    dto--> mapper:dto
+                deactivate dto
+                mapper --> controller:dto
+            deactivate mapper
+            controller --> ui:dto
+        deactivate controller
+        ui -> dto: toString
+        activate dto
+        deactivate dto
+        ui --> manager: inform operation success.
+    deactivate ui
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class ConfigurateAGVUI
+
+
+class ConfigurateAGVController {
+--Methods--
++ createAGV(max weight,volume,status,docker,autonomy,id,model,description)
+}
+
+class WarehouseEmployee
+
+abstract class JpaRepository{
+--Methods--
++add(AGV)
+}
+
+
+class AGV{
+..Attributes..
+-max weight
+-volume
+-status
+-docker
+-autonomy
+-id
+-model
+-description
+--Methods--
+#newAGV(max weight, volume,status,docker,autonomy,id,model,description)
++valueOf(max weight, volume,status,docker,autonomy,id,model,description)
+}
+
+class Dock
+
+
+
+
+
+ConfigurateAGVUI ..> ConfigurateAGVController
+WarehouseEmployee ..> ConfigurateAGVUI
+AGV "1" --- "1" Dock
+ConfigurateAGVController ..> AGV
+ConfigurateAGVController ..> JpaRepository
+
+
+@enduml

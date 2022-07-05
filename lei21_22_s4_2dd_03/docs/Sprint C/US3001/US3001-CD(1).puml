@@ -1,0 +1,103 @@
+@startuml
+
+title US3001 - Class Diagram 1 (Question)
+
+class CreateQuestionUI
+
+class CreateQuestionController{
+--Methods--
++ CreateQuestionController()
++ createQuestion(...)
+}
+
+
+abstract JPARepository {
+--Methods--
++ add(entity)
+}
+
+class QuestionBuilder{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- info
+- type
+--Methods--
++ withId(id)
++ withText(text)
++ withInstructions(instructions)
++ withInfo(info)
++ withType(type)
++ build()
+}
+
+enum Obligatoriness{
+MANDATORY
+OPTIONAL
+CONDITIONAL
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- extra info
+- options
+--Methods--
++ isOptional()
++ isMandatory()
++ toString()
++ options()
++ type()
+}
+
+class QuestionMapper{
+--Mehotds--
++ toDTO(question)
+}
+
+class QuestionDTO{
++ questionId
++ toString
++ options
+}
+
+enum QuestionType{
+FreeTextQuestion
+NumericQuestion
+SingleChoiceQuestion
+SingleChoiceWithInputQuestion
+MultipleChoiceQuestion
+MultipleChoiceWithInputQuestion
+SortingQuestion
+ScalingQuestion
+}
+
+
+class Condition{
+- conditionQuestion
+- conditionOption
+}
+
+
+
+
+'--------------------------------------------------UI
+CreateQuestionUI ..> CreateQuestionController
+
+'--------------------------------------------------Controller
+CreateQuestionController ..> JPARepository
+CreateQuestionController ..> QuestionBuilder
+CreateQuestionController ..> QuestionMapper
+'--------------------------------------------------Mapper / DTO
+QuestionMapper ..> QuestionDTO
+'--------------------------------------------------Builder
+QuestionBuilder ..> Question
+
+'--------------------------------------------------Question
+QuestionType <-- Question
+Obligatoriness <-- Question
+Condition <--Question
+
+@enduml

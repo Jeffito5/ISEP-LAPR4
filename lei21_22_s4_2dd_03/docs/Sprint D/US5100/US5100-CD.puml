@@ -1,0 +1,292 @@
+@startuml
+
+package agvdigitaltwin{
+    class AGVMovementThread{
+    ..Attributes..
+        -agv
+    --Methods--
+        + AGVMovementThread(agv)
+        + run()
+    }
+note right:AGV Control Unit Module - Responsible for managing the\n necessary AGV functions (Route, Sensor, Movement etc)
+}
+
+package agvmanager{
+    class TcpAgvManagerClient{
+    ..Attributes..
+        - socket
+    --Methods--
+        +run()
+        +writeByte(size, code, string)
+    }
+
+
+    class TcpAgvManagerServer{
+    --Methods--
+        + addClient(socket)
+        + removeClient(socket)
+        + main(args)
+    }
+
+    class TcpAgvManagerThreadMenu{
+    --Methods--
+        + run()
+    }
+
+    class SensorThread{
+    ..Attributes..
+        -currentPosition
+        -route
+    --Methods--
+        + SensorThread(agv,nextPosition,priority)
+        + run()
+        + (synchronized) updateAGV(agv,option)
+    }
+}
+
+package backOffice{
+
+    class BaseBackoffice{
+    --Methods--
+        -setupEventHandlers()
+        -doSetupEventHandlers(dispatcher)
+    }
+
+
+}
+
+abstract BaseApplication{
+--Methods--
+    -setupEventHandlers()
+    -doSetupEventHandlers(dispatcher)
+}
+
+interface EventDispatcher{
+--Methods--
+    + subscribe(observer, events)
+    + unsubscribe(observer, events)
+    + subscribe(observer)
+    + shutdown()
+}
+
+package core{
+
+    class RoutePlanner{
+    --Methods--
+        + calculateRoute(plant, obstacleList,dock,aisle)
+    }
+
+    class Route{
+    ..Attributes..
+        - routePositions
+    --Methods--
+        + positions()
+    }
+
+    class RoutePosition{
+    ..Attributes..
+        - Direction
+        - Coordinates
+    --Methods--
+        + direction()
+        + coordinates()
+    }
+
+    class AGVOccupiedEvent{
+    ..Attributes..
+        - agv
+    --Methods--
+        + agv()
+        + toString()
+    }
+
+    class AGVOccupiedWatchDog{
+    --Methods--
+        +onEvent()
+    }
+
+    interface EventHandler{
+    --Methods--
+        +onEvent(event)
+    }
+
+
+    class AGVMovementController{
+    --Methods--
+        + verifyPosition(currentPosition, position)
+        + getPlant()
+        + calculateRoute(agv,obstacleList)
+        + validatePosition(position, plant)
+        + slowDown(agv)
+        + speedUp(agv)
+        + stop(agv)
+        + updateAGVPosition(agv,routePosition)
+    }
+
+    class JpaAGVRepository{
+    --Methods--
+        + searchObstacles(position)
+    }
+
+    interface AGVRepository{
+    --Methods--
+    + searchObstacles(position)
+    }
+    
+note right: Obstacle = Dock OR Aisles OR AGV
+
+    class AGV{
+    ..Attributes..
+        -id
+        - coordinates
+        - (float) autonomy
+        - (float) batteryConsumption
+        - status
+        - minSpeed
+        - maxSpeed
+        - direction
+        - route
+        - maxWeigth
+        - maxVolume
+    --Methods--
+        + updateCoordinates(newCoordinates, direction)
+        + slowDown()
+        + stop()
+        + speedUp()
+        + updateRoute(route)
+        - consumeBattery()
+    }
+
+    class Coordinates{
+    ..Attributes..
+        -length
+        -width
+    }
+
+    enum Direction{
+        NORTH
+        SOUTH
+        EAST
+        WEST
+    }
+
+    class Dock{
+    ..Attributes..
+        - id
+        - beginCoordinates
+        - endCoordinates
+        - depthCoordinates
+        - accessibility
+    --Methods--
+        + changeStatus()
+    }
+
+    class Aisle{
+    ..Attributes..
+        - id
+        - beginCoordinates
+        - endCoordinates
+        - depthCoordinates
+        - accessibility
+    --Methods--
+
+    }
+
+    class Plant{
+    ..Attributes..
+        -id
+        -length
+        -width
+        -aisles
+        -docks
+    --Methods--
+    }
+
+    abstract JPARepository{
+    --Methods--
+        + findAll()
+        + save(entity)
+    }
+
+
+    class ProductOrder{
+    ..Attributes..
+        - items
+    --Methods--
+        +items()
+    }
+
+    class OrderItem{
+    ..Attributes..
+        -product
+        - quantity
+    --Methods--
+        + product()
+    }
+
+    class Product{
+    ..Attributes..
+        -id
+        - productLocation
+    --Methods--
+        +location()
+    }
+
+    class ProductLocation{
+    ..Attributes..
+        - aisle
+    --Methods--
+        +aile()
+    }
+    note right: May be added more information in future Use Cases
+
+
+}
+
+' Domain
+Plant --> Dock
+Plant --> Aisle
+Aisle --> Direction
+Dock-->Direction
+AGV ..> Dock
+AGV --> Direction
+AGV-->Coordinates
+AGV --> Route
+AGV ...> ProductOrder
+Product --> ProductLocation
+ProductOrder --> OrderItem
+OrderItem ..> Product
+Route --> RoutePosition
+RoutePosition --> Coordinates
+RoutePosition --> Direction
+ProductLocation ..> Aisle
+
+
+'AGV Twin
+AGVMovementThread ..> TcpAgvManagerThreadMenu
+AGVMovementThread ..> AGV
+
+'AGV Manager
+SensorThread ..> AGVMovementController
+RoutePlanner..>AGVMovementController
+RoutePlanner ..> Plant
+
+'Controller
+AGVMovementController ..> JpaAGVRepository
+AGVMovementController ..> JPARepository
+JpaAGVRepository --> AGVRepository
+
+'Events
+BaseBackoffice --|> BaseApplication
+BaseBackoffice ..> AGVOccupiedWatchDog
+BaseBackoffice --> EventDispatcher
+AGVOccupiedWatchDog ..> AGVOccupiedEvent
+AGVOccupiedWatchDog ..> EventHandler
+AGVOccupiedWatchDog ..> TcpAgvManagerClient
+TcpAgvManagerClient ..> TcpAgvManagerServer
+TcpAgvManagerServer ..> TcpAgvManagerThreadMenu
+TcpAgvManagerThreadMenu ...> AGVMovementThread
+TcpAgvManagerThreadMenu ...> SensorThread
+TcpAgvManagerThreadMenu ...> AGVMovementController
+
+@enduml

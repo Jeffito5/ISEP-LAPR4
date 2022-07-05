@@ -1,0 +1,81 @@
+@startuml
+
+class AssignOrderUI
+
+class AssignOrderController {
++ listPaidOrders()
++ listAgvAble(order)
++ assignOrder(agv)
+}
+
+class OrderRepository {
++ findById()
++ findPaid(id)
+}
+
+class AGVRepository {
++ isAble(order)
++ findByIdentifier(id)
+}
+
+class AGV {
+- status
++ assignOrder(order)
++ identifier
++ status()
++ maxWeight
++ volume
+}
+
+class ProductOrder {
+- orderStatus
+- changeStatus(newStatus)
++ developOrder()
+}
+
+class Status {
+- status
++ assignOrder(order)
+- changeStatus(newStatus)
+}
+
+class OrderStatus {
+- s
+}
+
+class AGVDTO {
++ AGVDTO(agv)
+}
+
+class AGVMapper {
++ toDTO(agvList)
+}
+
+class OrderDTO {
++ OrderDTO(order)
+}
+
+class OrderMapper {
++ toDTO(orderList)
+}
+
+'----------Relationships
+
+AssignOrderUI ..> AssignOrderController
+
+AssignOrderController ..> OrderRepository
+AssignOrderController ..> AGVRepository
+AssignOrderController ..> AGV
+AssignOrderController ..> ProductOrder
+AssignOrderController ..> OrderStatus
+AssignOrderController ..> Status
+
+AssignOrderController ..> AGVMapper
+AGVMapper ..> AGVDTO
+AssignOrderController ..> OrderMapper
+OrderMapper ..> OrderDTO
+
+AGV "1" --> "1" Status
+ProductOrder "1" --> "1" OrderStatus
+
+@enduml

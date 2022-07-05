@@ -1,0 +1,15 @@
+server\TcpAMThreadCallDT.class
+server\TcpAMThreadSensor.class
+server\TcpAMThreadComeBack.class
+client\presentation\ConnectUI.class
+server\TcpAMThreadBatteryUpdate.class
+server\TcpAMThreadAssignOrder.class
+server\TcpAgvManagerServer.class
+server\TcpAgvManagerThreadMenu.class
+server\TcpAMThreadChangeStatus.class
+server\TcpAMThreadConfigureAgv.class
+client\presentation\MainMenu.class
+client\TcpAgvManagerClient.class
+server\TcpAMThreadAssignOrderAuto.class
+client\BaseAMClientApp.class
+server\TcpAMThreadMovement.class

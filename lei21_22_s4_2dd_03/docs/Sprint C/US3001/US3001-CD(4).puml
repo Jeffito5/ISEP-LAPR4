@@ -1,0 +1,139 @@
+@startuml
+
+title US3001 - Class Diagram 4 (Survey)
+
+
+class CreateSurveyUI
+
+class CreateSurveyController{
+--Methods--
++ CreateSurveyController()
++ getQuestions()
++ createQuestionnaire(...)
+}
+
+abstract JPARepository{
+--Methods--
++ findAll()
++ add(entity)
+
+}
+
+class SurveyMapper{
+--Methods--
++ toDTO(survey)
+}
+
+class SurveyDTO{
++ id
++ toString
+}
+
+class QuestionnaireMapper{
+--Methods--
++ toDTO(questionnaire)
+}
+
+class QuestionnaireDTO{
++ toString
+}
+
+class SurveyBuilder{
+- questionnaire
+- timeInterval
+- targetAudience
+--Methods--
++ withQuestionnaire(questionnaire)
++ withTimeInterval(timeInterval)
++ withTargetAudience(target)
++ build()
+}
+
+class Survey{
+- questionnaire
+- timeInterval
+- targetAudience
+--Methods--
++ toString()
+}
+
+class Description{
+- description
+}
+
+
+class TargetAudience{
+- codes
+- dayCount
+}
+enum TargetType{
+BRAND
+CATEGORY
+PRODUCT
+GENDER
+COUNTRY
+}
+
+class TimeInterval{
+- firstDate
+- secondDate
+}
+
+class Questionnaire{
+- questionnaireId
+- questionnaireTitle
+- welcomeMessage
+- sections
+- finalMessage
+}
+
+class Section{
+- sectionId
+- sectionTitle
+- sectionDescription
+- obligatoriness
+- repeatability
+- content
+--Methods--
++ toString();
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- extra info
+--Methods--
++ toString();
+}
+
+class SurveyCode{
++ codes
+--Methods--
++ code()
+}
+
+
+CreateSurveyUI ..> CreateSurveyController
+
+CreateSurveyController ..> SurveyBuilder
+CreateSurveyController ..> JPARepository
+CreateSurveyController ..> SurveyMapper
+
+
+SurveyMapper ..> SurveyDTO
+
+SurveyBuilder ..> Survey
+
+Survey "1" --> "1" Questionnaire:uses
+Survey "1" --> "1" TimeInterval:uses
+Survey "1" --> "1" TargetAudience:uses
+Survey "1" --> "1"Description:uses
+Survey --> SurveyCode
+TargetAudience --> TargetType
+
+Questionnaire "1" --> "1..*" Section:uses
+
+Section "1"-->"1..*" Question:uses
+@enduml

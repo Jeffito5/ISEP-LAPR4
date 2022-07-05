@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate WarehouseEmployee
+WarehouseEmployee -> System: **1.** Starts the process of assigning automatically tasks to AGVs
+activate System
+System --> WarehouseEmployee: **1.1** Asks the warehouse employee if he wants the algorithm to assign orders periodically or not
+deactivate System
+
+WarehouseEmployee -> System: **2.** Chooses if the algorithm is going to assign orders periodically or not
+activate System
+System --> WarehouseEmployee: **2.1** Assigns the tasks automatically, shows the ones assigned and informs about the success of the operation
+deactivate System
+
+@enduml

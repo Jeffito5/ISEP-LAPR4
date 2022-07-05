@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "Customer" as C
+participant ":CheckOrderStatusUI" as UI
+participant ":TcpCustomerClient" as TC
+participant ":TcpOrderServer" as TS
+participant ":TcpOSThreadCheckOrderStatus" as T
+participant ":CheckOrderStatusController" as CON
+participant ":OrderRepository" as PR
+participant ":CustomerRepository" as CR
+
+
+activate C
+
+C -> UI: wants to add products to the shopping cart
+activate UI
+UI-->TC **:create()
+UI->TC : run()
+activate TC
+deactivate TC
+UI->TC : write()
+activate TC
+deactivate TC
+activate TS
+TS->TS : read()
+
+TS-->T **:create()
+deactivate TS
+
+UI -> TC: write(customerEmail)
+activate TC
+deactivate TC
+activate T
+T->T : read(customerEmail)
+T->CON : catalog=getCatalog()
+activate CON
+CON->PR : catalog=findAll()
+activate PR
+deactivate PR
+
+deactivate CON
+T->T :write(catalog)
+
+
+UI->TC: read(catalog)
+activate TC
+deactivate TC
+UI --> C : shows catalog
+deactivate UI
+
+C -> UI: selects a productId and quantity
+activate UI
+UI->TC : write(productId)
+activate TC
+deactivate TC
+
+T->T : read(productId)
+
+UI->TC : write(quantity)
+activate TC
+deactivate TC
+
+T->T : read(quantity)
+T->CON : addProductToShoppingCart(productId,quantity,customerEmail)
+activate CON
+CON->CON : customer = findCustomerByEmail(customerEmail)
+activate CON
+CON->CR: customer = findByEmail(customerEmail)
+activate CR
+deactivate CR
+
+deactivate CON
+CON->CON : order = getProduct(order)
+activate CON
+CON->PR : order = findByCode(order)
+activate PR
+
+deactivate PR
+
+deactivate CON
+CON->CR: save(order)
+activate CR
+deactivate CR
+
+
+deactivate CON
+
+
+T->T : write(order)
+
+UI->TC: read(order)
+activate TC
+deactivate TC
+
+deactivate T
+
+
+UI --> C: shows orders
+deactivate UI
+
+
+
+@enduml

@@ -1,0 +1,36 @@
+QUESTIONNAIRE 14: titulo
+Welcome Message: ola.
+
+Section 13: (About Category asd)
+(MANDATORY) - titulo2
+
+Question:
+(MANDATORY) - 16. blalbalba gostou.
+a) asdasd.
+b) asdasdasd asd.
+(info)
+Instructions: qq.
+A: resposta1.
+
+Question:
+(MANDATORY) - 16. blalbalba gostou?(info)
+Instructions: qq.
+A: resposta2.
+
+Section 13:
+(MANDATORY) - titulo2
+Description: descrissao.
+
+Question:
+(OPTIONAL) - 16. blalbalba gostou.
+a) asdasd.
+b) asdasdasd asd.
+(info)
+Instructions: qq.
+A: b), a)
+
+Question:
+(CONDITIONAL) - 16. blalbalba gostou?
+A: resposta 3.
+
+Questionnaire Final Message: xau.

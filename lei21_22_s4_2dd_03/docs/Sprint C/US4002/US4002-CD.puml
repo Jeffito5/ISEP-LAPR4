@@ -1,0 +1,89 @@
+@startuml
+
+class AssignOrderAutomaticallyUI
+
+class AssignOrderAutomaticallyController {
++ addOrdersToQueue()
++ sizeOfListOfOrdersInQueue()
++ removeFirstOrderFromQueue()
++ listAgvAble(order)
++ assignOrder(agv)
++ findProductOrderById(identifier)
++ checkIfTimeIsCorrect(time, unitOfTime)
+}
+
+class ProductOrder {
++ developOrder()
++ changeStatus(developing)
+}
+
+class OrderDTO {
++ OrderDTO(order)
+}
+
+class OrderMapper {
++ toDTO(order)
+}
+
+interface OrderRepository {
++ add(entity)
++ findById(code)
++ findAll()
++ findPaid()
++ listOfOrdersPreparedByAGVs()
++ listOfOrdersInAscendingOrder()
+}
+
+interface AGVRepository {
++ isAble(order)
++ findByIdentifier(id)
++ findAGVOccupied()
+}
+
+class Status {
+- status
++ assignOrder(order)
+- changeStatus(newStatus)
+}
+
+class OrderStatus {
+- s
+}
+
+class AGVDTO {
++ AGVDTO(agv)
+}
+
+class AGVMapper {
++ toDTO(agvList)
+}
+
+class AGV {
+- status
++ assignOrder(order)
++ identifier
++ status()
++ maxWeight
++ volume
+}
+
+'----------Relationships
+
+AssignOrderAutomaticallyUI ..> AssignOrderAutomaticallyController
+
+AssignOrderAutomaticallyController ..> OrderRepository
+AssignOrderAutomaticallyController ..> AGVRepository
+AssignOrderAutomaticallyController ..> OrderMapper
+AssignOrderAutomaticallyController ..> AGVMapper
+AssignOrderAutomaticallyController ..> ProductOrder
+AssignOrderAutomaticallyController ..> AGV
+AssignOrderAutomaticallyController ..> OrderStatus
+AssignOrderAutomaticallyController ..> Status
+
+OrderMapper ..> OrderDTO
+AGVMapper ..> AGVDTO
+
+AGV "1" --> "1" Status
+ProductOrder "1" --> "1" OrderStatus
+
+@enduml

@@ -1,0 +1,77 @@
+@startuml
+
+title SD - Assign an order to an AGV
+
+    participant "Warehouse Employee" as we
+	participant ":AssignOrderUI" as ui
+	participant ":AssignOrderController" as ctrl
+	participant "orderRepository:OrderRepository" as orderRepo
+	participant "orderMapper: OrderMapper" as orderMapper
+    participant "orderDTO: OrderDTO" as orderDto
+	participant "agvRepository:AGVRepository" as agvRepo
+	participant "agvMapper: AGVMapper" as agvMapper
+    participant "agvDTO: AGVDTO" as agvDto
+    participant "agv:AGV" as agv
+	participant "order:ProductOrder" as order
+	participant "agvStatus:Status" as agvStatus
+
+    activate we
+    we->ui:wants to assign an order to an agv
+        activate ui
+            ui->ctrl: listPaidOrders()
+            activate ctrl
+                ctrl->orderRepo:findPaid()
+                activate orderRepo
+                deactivate orderRepo
+                ctrl-->orderMapper: create()
+                    activate orderMapper
+                    orderMapper-->orderDto: create()
+                        activate orderDto
+                    orderMapper->orderDto: toDTO(orderList)
+                        deactivate orderDto
+                    deactivate orderMapper
+            deactivate ctrl
+                deactivate orderRepo
+        ui-->we:asks to choose the order
+    we->ui:chooses the order
+            ui->ctrl: listAgvAble(order)
+            activate ctrl
+                ctrl->orderRepo:findById(id)
+                activate orderRepo
+                deactivate orderRepo
+                ctrl->agvRepo:isAble(order)
+                activate agvRepo
+                deactivate agvRepo
+                ctrl-->agvMapper:create()
+                activate agvMapper
+                    agvMapper->agvDto:create()
+                    activate agvDto
+                    deactivate agvDto
+                    agvMapper->agvDto:toDTO(agvList)
+                    activate agvDto
+                    deactivate agvDto
+                deactivate agvMapper
+            deactivate ctrl
+        ui-->we:asks to choose the AGV
+    we->ui:chooses the AGV
+        ui->ctrl:assignOrder(agv)
+            activate ctrl
+            ctrl->agvRepo:findByIdentifier(id)
+            activate agvRepo
+            deactivate agvRepo
+            ctrl->agv:assignOrder(order)
+                activate agv
+                agv->agvStatus:assignOrder(order)
+                activate agvStatus
+                    agvStatus->agvStatus:changeStatus(occupied)
+                deactivate agv
+            ctrl->order:developOrder()
+                deactivate agvStatus
+                activate order
+                order->order:changeStatus(developing)
+            deactivate ctrl
+        ui-->we:informs the success of the operation
+                deactivate order
+        deactivate ui
+    deactivate we
+@enduml

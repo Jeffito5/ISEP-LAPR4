@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+    <persistence-unit name="eapli.base">
+        <!--
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>eapli.framework.infrastructure.authz.domain.model.SystemUser</class>
+        <class>eapli.framework.infrastructure.authz.domain.model.Role</class>
+        <class>eapli.framework.infrastructure.authz.domain.model.RoleSet</class>
+        <class>eapli.framework.infrastructure.authz.domain.model.RoleAssignment</class>
+        <class>eapli.base.clientusermanagement.domain.ClientUser</class>
+        <class>eapli.base.clientusermanagement.domain.SignupRequest</class>
+
+        <class>eapli.base.customermanagement.domain.Customer</class>
+        <class>eapli.base.customermanagement.domain.Address</class>
+        <class>eapli.base.countrymanagement.domain.Country</class>
+        <class>eapli.base.customermanagement.domain.Telephone</class>
+        <class>eapli.base.customermanagement.domain.BirthDate</class>
+        <class>eapli.base.customermanagement.domain.Gender</class>
+        <class>eapli.base.customermanagement.domain.Email</class>
+        <class>eapli.base.customermanagement.domain.Name</class>
+        <class>eapli.base.customermanagement.domain.VAT</class>
+        <class>eapli.base.customermanagement.domain.ShoppingCart</class>
+        <class>eapli.base.customermanagement.domain.CartLine</class>
+
+        <class>eapli.base.productmanagement.domain.Product</class>
+        <class>eapli.base.productmanagement.domain.ProductMeasurements</class>
+
+        <class>eapli.base.catalogmanagement.domain.Catalog</class>
+
+        <class>eapli.base.agvmanagement.domain.AGV</class>
+        <class>eapli.base.agvmanagement.domain.Model</class>
+        <class>eapli.base.agvmanagement.domain.Description</class>
+        <class>eapli.base.agvmanagement.domain.Identifier</class>
+        <class>eapli.base.agvmanagement.domain.Autonomy</class>
+        <class>eapli.base.agvmanagement.domain.Volume</class>
+        <class>eapli.base.agvmanagement.domain.MaxWeight</class>
+        <class>eapli.base.agvmanagement.domain.Status</class>
+
+        <class>eapli.base.ordermanagement.domain.ProductOrder</class>
+        <class>eapli.base.ordermanagement.domain.OrderItem</class>
+        <class>eapli.base.ordermanagement.domain.Identifier</class>
+        <class>eapli.base.ordermanagement.domain.Payment</class>
+        <class>eapli.base.ordermanagement.domain.Stakeholders</class>
+        <class>eapli.base.ordermanagement.domain.OrderMeasurements</class>
+
+        <class>eapli.base.categorymanagement.domain.Category</class>
+        <class>eapli.base.categorymanagement.domain.Code</class>
+        <class>eapli.base.categorymanagement.domain.Description</class>
+
+        <class>eapli.base.warehousemanagement.domain.Warehouse</class>
+        <class>eapli.base.warehousemanagement.domain.Plant</class>
+        <class>eapli.base.warehousemanagement.domain.Aisle</class>
+        <class>eapli.base.warehousemanagement.domain.Row</class>
+        <class>eapli.base.warehousemanagement.domain.Shelf</class>
+        <class>eapli.base.warehousemanagement.domain.Coordinates</class>
+        <class>eapli.base.warehousemanagement.domain.Dock</class>
+
+        <class>eapli.base.surveymanagement.domain.Answer</class>
+        <class>eapli.base.surveymanagement.domain.Question</class>
+        <class>eapli.base.surveymanagement.domain.Section</class>
+        <class>eapli.base.surveymanagement.domain.Questionnaire</class>
+        <class>eapli.base.surveymanagement.domain.survey.Survey</class>
+        <class>eapli.base.reportmanagement.domain.Report</class>
+
+        <properties>
+            <!-- Hibernate C3PO Connection Pooling -->
+            <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+            <property name="hibernate.c3p0.min_size" value="5" />
+            <property name="hibernate.c3p0.max_size" value="20" />
+            <property name="hibernate.c3p0.timeout" value="300" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="120" />
+
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/base"/>-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://vsgate-s2.dei.isep.ipp.pt:10729/eapli.base;"/>
+
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value="eapli"/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>

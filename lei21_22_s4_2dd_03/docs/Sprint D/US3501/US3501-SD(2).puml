@@ -1,0 +1,75 @@
+@startuml
+title Answer Survey Sequence Diagram
+
+actor Customer
+activate Customer
+
+Customer -> ":AnswerSurveyUI" as ui: run()
+    activate ui
+    ui --> "controller:AnswerSurveyController" as controller**:create()
+    ui -> controller: getAvailableSurveys(username)
+        activate controller
+        controller -> ":PersistenceContext":repositories()
+            activate ":PersistenceContext"
+        ":PersistenceContext" --> controller:repoFactory
+            deactivate ":PersistenceContext"
+        controller -> "repoFactory:RepositoryFactory":surveys
+            activate "repoFactory:RepositoryFactory"
+        "repoFactory:RepositoryFactory" --> controller:surveyRepo
+            deactivate "repoFactory:RepositoryFactory"
+
+        controller -> "surveyRepo:SurveyRepository":findSurveysForCustomer(username)
+            activate "surveyRepo:SurveyRepository"
+            deactivate "surveyRepo:SurveyRepository"
+        deactivate controller
+    ui --> Customer: ask to choose a survey
+    deactivate ui
+Customer -> ui:chooses a survey
+    activate ui
+    ui -> controller:exportSurvey(surveyId)
+        activate controller
+        deactivate controller
+    ui --> Customer: show new file directory
+    ui -> Customer: ask if survey is answered
+    deactivate ui
+Customer -> ui:answers positively
+    activate ui
+    ui--> Customer:asks file directory
+    deactivate ui
+Customer -> ui:types file directory
+    activate ui
+    ui --> controller: answerSurvey(directory)
+        activate controller
+        controller -> "validator:AnswerValidator"as validator** :create()
+        controller -> validator:validateSurveyAnswer(text)
+            activate validator
+            deactivate validator
+
+        controller -> "builder:AnswerBuilder" as builder**:create(true)
+        controller -> builder:withText(text)
+            activate builder
+            deactivate builder
+
+        controller -> builder:withSurvey(survey)
+            activate builder
+            deactivate builder
+
+         controller -> builder:withSection(section)
+            activate builder
+            deactivate builder
+
+         controller -> builder:withQuestion(question)
+            activate builder
+            deactivate builder
+
+         controller -> builder:build()
+            activate builder
+            builder --> controller: answer
+            deactivate builder
+        deactivate controller
+
+     ui-->Customer: Inform operation success.
+    deactivate ui
+
+deactivate Customer
+@enduml

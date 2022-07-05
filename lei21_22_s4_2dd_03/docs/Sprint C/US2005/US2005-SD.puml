@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Admin as admin
+
+activate admin
+
+admin -> ":ServerUI" as UI : request to open the server
+activate UI
+    UI --> "controller:ServerController" as controller **  :create()
+    UI --> controller:createServer
+    activate controller
+        controller --> "server:Server" as server **:create()
+        controller --> server:start()
+        activate server
+            note right: New Thread created
+            loop
+                server --> "request:HttpAjaxRequest" as request**: create()
+                            note right: New Thread created
+                server --> request:start()
+                activate request
+                    request --> "message:HTTPMessage" as message**: create()
+                    request --> message: send(outputStream)
+                    activate message
+                        message --> message:writeHeaderLine
+                        message --> message:readHeaderLine
+                    deactivate message
+                    request --> server:getPlantInfo()
+                deactivate request
+                server --> controller:getPlants()
+        deactivate server
+        controller --> server:plant
+        activate server
+            server --> request:
+            activate request
+                request --> message:setContent(plantInfo)
+                activate message
+                deactivate message
+            deactivate request
+        deactivate server
+    deactivate controller
+    end loop
+
+deactivate UI
+
+
+@enduml

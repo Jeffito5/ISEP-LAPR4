@@ -1,0 +1,74 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "AGV Digital Twin" as C
+participant ":ChangeStatusUI" as UI
+participant ":TcpTcpAGVManagerClient" as TC
+participant ":TcpAGVManagerServer" as TS
+participant ":TcpAgvManagerThreadMenu" as T
+participant ":ChangeStatusController" as CON
+participant ":AGVRepository" as AR
+
+activate C
+
+C -> UI: wants to update its status
+activate UI
+UI-->TC **:creat()
+UI->TC : run()
+activate TC
+deactivate TC
+UI->TC :write()
+activate TC
+deactivate TC
+activate TS
+TS->TS:read()
+TS-->T **:creat()
+deactivate TS
+
+
+
+UI --> C:asks to insert the agv identifier
+deactivate UI
+C->UI: inserts the agv identifier
+activate UI
+UI->TC : write(agvIdentifier)
+activate TC
+deactivate TC
+activate T
+T->T : read(agvIdentifier)
+T->CON:agv=getAGVByIdentifier(agvIdentifier)
+activate CON
+CON->AR : agv = findByIndentifier(agvIdentifier)
+activate AR
+
+deactivate AR
+deactivate CON
+UI-->C: asks to insert the new status
+deactivate UI
+
+C->UI: inserts the new status
+activate UI
+UI->TC :write(newStatus)
+activate TC
+deactivate TC
+T->T : read(newStatus)
+T->CON :newAGV = updateStatusForAGV()
+activate CON
+CON-> AR: save(agv)
+activate AR
+deactivate AR
+
+deactivate CON
+T->T : write(newAGV)
+
+UI->TC : read(newAGV)
+activate TC
+deactivate TC
+
+
+
+UI--> C: shows the agv updated
+deactivate UI
+@enduml

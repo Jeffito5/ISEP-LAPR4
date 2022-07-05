@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate SalesClerk
+SalesClerk -> System: **1.** Starts the process of viewing the list of \n orders that have already been received by the customers
+activate System
+System --> SalesClerk: **1.1** Asks the Sales Clerk to choose the order that has been received
+deactivate System
+
+SalesClerk -> System: **2.** Selects the order
+activate System
+System <-- SalesClerk: **2.1.** Changes the order's status, shows the customer\n and informs the Sales Clerk about the success of the operation
+deactivate System
+
+@enduml

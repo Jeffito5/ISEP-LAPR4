@@ -1,0 +1,92 @@
+@startuml
+
+title US3001 - Class Diagram 3 (Questionnaire)
+
+
+class CreateQuestionnaireUI
+
+class CreateQuestionnaireController{
+
++ CreateQuestionnaireController()
++ getQuestions()
++ createQuestionnaire(...)
+}
+
+abstract JPARepository {
+--Methods--
++ add(entity)
++ findAll()
+}
+
+class QuestionnaireMapper{
+--Methods--
++ toDTO(questionnaire)
+}
+
+class QuestionnaireDTO{
++ id
++ toString
+}
+
+class QuestionnaireBuilder{
+- questionnaireId
+- questionnaireTitle
+- welcomeMessage
+- sections
+- finalMessage
+--Methods--
++ withId(questionnaireId)
++ withTitle(title)
++ withWelcomeMessage(welcomeMessage)
++ withSections(sections)
++ withFinalMessage(finalMessage)
++ build()
+}
+
+class Questionnaire{
+- questionnaireId
+- questionnaireTitle
+- welcomeMessage
+- sections
+- finalMessage
+--Methods--
++ toString()
+}
+
+class Section{
+- sectionId
+- sectionTitle
+- sectionDescription
+- obligatoriness
+- repeatability
+- content
+--Methods--
++ toString();
+}
+
+class Question{
+- questionId
+- questionText
+- instructions
+- obligatoriness
+- extra info
+--Methods--
++ toString();
+}
+
+
+
+CreateQuestionnaireUI ..> CreateQuestionnaireController
+
+CreateQuestionnaireController ..> QuestionnaireBuilder
+CreateQuestionnaireController ..> JPARepository
+CreateQuestionnaireController ..> QuestionnaireMapper
+
+QuestionnaireMapper ..> QuestionnaireDTO
+
+QuestionnaireBuilder ..> Questionnaire
+
+Questionnaire "1" --> "1..*" Section:uses
+
+Section "1"-->"1..*" Question:uses
+@enduml

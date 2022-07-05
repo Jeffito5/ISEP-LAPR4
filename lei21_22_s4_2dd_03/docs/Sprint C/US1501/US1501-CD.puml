@@ -1,0 +1,91 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+class AddProductSCUI
+
+class TcpCustomerClient{
+--Methods--
++ run()
+}
+
+
+class TcpOrderServer{
+--Threads--
+  TcpOSThreadAddProductSC(socket)
+--Methods--
++ run()
+}
+
+class AddProductSCController{
+--Methods--
++ addProductToShoppingCart(productId,quantity,cutomerEmail)
++ getCatalog()
++ getProduct(productId)
++ findCustomerByEmail(cutomerEmail)
+}
+
+class ProductRepository{
+--Methods--
++ findAll()
++ findByCode(productId)
+}
+
+class CustomerRepository{
+--Methods--
++ findByEmail()
++ save(customer)
+}
+
+class Customer{
+..Attributes..
+-email
+-shopping cart
+}
+
+class ShoppingCart{
+..Attributes..
+- cart lines
+}
+
+class CartLine{
+..Attributes..
+- quantity
+- product
+}
+
+
+
+class Product{
+..Attributes..
+-internalCode
+-shortDescription
+-extendedDescription
+-technicalDescription
+-barcode
+-category
+-productMeasurements
+-brandName
+-reference
+-priceWithTax
+-priceWithoutTax
+-productionCode
+}
+
+
+AddProductSCUI ..> TcpCustomerClient
+TcpOrderServer ..> AddProductSCController
+
+TcpCustomerClient ..> TcpOrderServer
+
+AddProductSCController..>ProductRepository
+AddProductSCController..>CustomerRepository
+
+ProductRepository..> Product
+
+CustomerRepository..> Customer
+
+ShoppingCart "1"--"*"CartLine
+Customer "1" -- "1" ShoppingCart
+
+@enduml

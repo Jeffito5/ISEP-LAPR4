@@ -1,0 +1,316 @@
+@startuml
+
+'Roles
+
+
+
+package "<Aggregate> Employee"{
+    class "<Root><Entity> Employee"
+    class "<Entity> Sales Manager"
+    class "<Entity> Administrator"
+    class "<Entity> Sales Clerk"
+    class "<Entity> Warehouse Employee"
+}
+
+package "<Aggregate> Survey"{
+    class "<Root><Entity> Survey"
+    {
+        id
+        time interval
+    }
+    class "<VO> Report"
+}
+
+package "<Aggregate> Questionnaire"{
+    class "<Root><Entity> Questionnaire"{
+        id
+        title
+        welcome message
+        final message
+        target audience
+        specification
+    }
+
+
+
+
+    class "<Entity> Section"{
+    id
+        title
+        description
+        obligatoriness
+        repeatability
+        content
+    }
+    class "<VO> Question"{
+        id
+        text
+        instruction
+        type
+        obligatoriness
+        extra info
+    }
+    class "<VO> Multiple-Choice"
+    class "<VO> Free Text"
+    class "<VO> Numeric"
+    class "<VO> Single-Choice"
+    class "<VO> Scaling"
+    class "<VO> Sorting"
+    class "<VO> Single-Choice w/ Input"
+    class "<VO> Multiple-Choice w/ Input"
+}
+'SPOMS
+
+package "<Aggregate> Customer"{
+    class "<Entity> Shopping Cart"{
+        products
+        quantities
+    }
+    class "<Root><Entity> Customer"{
+        id
+        name
+    }
+
+    class "<VO> VAT"
+    class "<VO> Gender"
+    class "<VO> Birth Date"
+    class "<VO> Email"
+    class "<VO> Phone Number"
+    class "<VO> Address"
+}
+
+package "<Aggregate> Country"{
+
+    class "<Root><Entity> Country"{
+        id
+        name
+    }
+}
+
+package "<Aggregate> Product"{
+    class "<Root><Entity> Product"{
+        technical description
+        brand name
+    }
+    class "<VO> Reference"
+    class "<VO> Price"
+    class "<VO> Tax"{
+        value
+    }
+    class "<VO> Description"{
+        limit
+        description
+    }
+    class "<VO> Photo"{
+        path
+    }
+    class "<VO> Barcode"
+    class "<VO> Code"{
+        format
+    }
+}
+
+package "<Aggregate> Catalog"{
+    class "<Root><Entity> Catalog"
+}
+
+package "<Aggregate> Category"{
+    class "<Root><Entity> Category"{
+        code
+    }
+
+    class "<VO> Description"
+
+}
+
+package "<Aggregate> Order"{
+    class "<Root><Entity> Order"{
+        id
+    }
+
+    class "<VO> Date Time"
+    class "<VO> State"
+    class "<VO> Volume"
+    class "<VO> Weight"
+    class "<VO> Payment Method"
+    class "<VO> Shipment"{
+        cost
+        method
+    }
+
+    class "<VO> OrderItem"{
+        'Porque os preços podem atualizar
+        unit price
+        tax
+        quantity
+    }
+}
+
+package "<Aggregate> Task"{
+        class "<Root><Entity> Task"{
+            id
+        }
+}
+
+package "<Aggregate> Bin"{
+    class "<Root><Entity> Bin"{
+        id
+    }
+    class "<VO> Weight"
+    class "<VO> Width"
+    class "<VO> Length"
+}
+
+package "<Aggregate> Warehouse"{
+    class "<Root><Entity> Warehouse"{
+        id
+        name
+        length
+        width
+        square
+        unit
+        aisles
+        AVGDocks
+        (Location) output place
+    }
+
+    class "<Entity> Aisle"{
+        id
+        xInicio
+        xFim
+        yInicio
+        yFim
+
+        accessibility
+        rows??
+    }
+    class "<Entity> Row"{
+        id
+        idAisle
+        xInicio
+        xFim
+        yInicio
+        yFim
+    }
+
+    class "<Entity> Shelf"{
+        id
+    }
+    class "<Entity> Plant"{
+        id
+        length
+        width
+    }
+    class "<Entity> Dock"
+}
+
+'AGVS
+package "<Aggregate> AGV"{
+    class "<Root><Entity> AGV"{
+        id
+    }
+    class "<VO> Model"
+    class "<VO> Autonomy"
+    class "<VO> Address"
+    class "<VO> Weight"
+    class "<VO> Volume"
+    class "<VO>Warehouse Location"
+    class "<Entity> Dock"
+    {
+        id
+        xInicio
+        xFim
+        yInicio
+        yFim
+    }
+}
+
+
+
+
+'Relationships
+    "<Root><Entity> Customer" "1" *-- "*" "<VO> Address"
+    "<Root><Entity> Country" "1" -- "1" "<VO> Address":< belongs to
+    "<Root><Entity> Warehouse" "1" -- "*" "<Root><Entity> AGV": > knows
+    "<Root><Entity> Product" "*" -- "1""<Root><Entity> Category":> presented under
+    "<Root><Entity> Product" "1..*" -- "1" "<Root><Entity> Catalog": < composed by
+    "<Entity> Shopping Cart" "1" -- "*" "<Root><Entity> Product":> contains
+    "<Entity> Shopping Cart" "1" -- "0..1" "<Root><Entity> Order":> generates
+    "<Entity> Shopping Cart" "1" -- "1" "<Root><Entity> Customer":< manages
+    "<Root><Entity> Catalog" "1" -- "1..*" "<Root><Entity> Customer": < accesses
+    "<Root><Entity> AGV" "1" *-- "1" "<VO>Warehouse Location"
+    "<Entity> Plant" "1" o-- "1..*" "<Entity> Aisle"
+    "<Entity> Plant" "1" o-- "1..*" "<Entity> Dock"
+    "<Entity> Dock" "1" -- "1" "<Root><Entity> AGV":> houses
+    "<Entity> Row" "1" o-- "1..*" "<Entity> Shelf"
+    "<Entity> Aisle" "1" o-- "1..*" "<Entity> Row"
+    "<Root><Entity> Bin" "*" -- "1" "<Root><Entity> Product" :> stores
+    "<Entity> Warehouse Employee" "1..*" -- "1" "<Root><Entity> Warehouse": > works at
+    "<Root><Entity> Warehouse" "1" -- "1..*" "<Entity> Plant" : > organized by
+    "<Root><Entity> AGV" "*" -- "1" "<Entity> Plant": < guides
+    "<Entity> Shelf" "1" -- "*" "<Root><Entity> Bin": > stores
+    "<Root><Entity> Order" "1" -- "1" "<Root><Entity> Task": > generates
+    "<Root><Entity> Order" "1" -- "1..*" "<VO> OrderItem":> contains
+    "<VO> OrderItem" "*" -- "1" "<Root><Entity> Product"
+    "<Root><Entity> Task" "1" -- "1" "<Root><Entity> AGV": < executes
+    "<Root><Entity> Task" "1" -- "1..*" "<Root><Entity> Bin": > composed by
+    "<Root><Entity> Customer" "1" -- "*" "<Root><Entity> Survey":> answers
+    "<Root><Entity> Survey" "*" -- "1" "<Root><Entity> Questionnaire": < used by
+    "<Root><Entity> Questionnaire" "1" o-- "1..*" "<Entity> Section"
+    "<Entity> Section" "1" o-- "1..*" "<VO> Question"
+    "<VO> Question" <|-- "<VO> Free Text"
+    "<VO> Question" <|-- "<VO> Multiple-Choice"
+    "<VO> Question" <|-- "<VO> Sorting"
+    "<VO> Question" <|-- "<VO> Scaling"
+    "<VO> Question" <|-- "<VO> Single-Choice"
+    "<VO> Question" <|-- "<VO> Numeric"
+    "<VO> Question" <|-- "<VO> Single-Choice w/ Input"
+    "<VO> Question" <|-- "<VO> Multiple-Choice w/ Input"
+    "<Root><Entity> Survey" "*" -- "1" "<Root><Entity> Product":> addresses
+    "<Entity> Warehouse Employee" -- "<Root><Entity> Task":> manages
+    "<Root><Entity> Category" "1" -- "*" "<Root><Entity> Category":> contains
+    "<Entity> Warehouse Employee" "1" -- "*" "<Root><Entity> AGV":> manages
+    "<Entity> Sales Clerk" "1" -- "1" "<Root><Entity> Catalog":> manages
+    "<Entity> Sales Clerk" "1" -- "*" "<Root><Entity> Category":> manages
+    "<Entity> Sales Clerk" "1" -- "*" "<Root><Entity> Order": >  manages
+    "<Entity> Sales Manager" "1" -- "1" "<Root><Entity> Catalog":> manages
+    "<Entity> Sales Manager" "1" -- "*" "<Root><Entity> Category":> manages
+    "<Entity> Sales Manager" "1" -- "*" "<Root><Entity> Order": >  manages
+    "<Entity> Sales Manager" "1" -- "*" "<Root><Entity> Survey":> manages
+    "<Root><Entity> Survey" "1" -- "1" "<VO> Report": > generates
+
+    "<Root><Entity> Employee" <|-- "<Entity> Sales Clerk"
+    "<Root><Entity> Employee" <|-- "<Entity> Warehouse Employee"
+    "<Root><Entity> Employee" <|-- "<Entity> Administrator"
+    "<Root><Entity> Employee" <|-- "<Entity> Sales Manager"
+    "<Root><Entity> Product" "1" *-- "1..*" "<VO> Photo"
+    "<Root><Entity> Product" "1" *-- "1" "<VO> Barcode"
+    "<Root><Entity> Product" "1" *-- "1..2" "<VO> Code"
+    "<Root><Entity> Product" "1" *-- "2" "<VO> Description"
+    "<Root><Entity> Product" "1" *-- "1..*" "<VO> Tax"
+    "<VO> Tax" "1" -- "1" "<Root><Entity> Country":> charged by
+
+    "<Root><Entity> Customer" "1" *-- "1" "<VO> Birth Date"
+    "<VO> Phone Number" "1" --* "1" "<Root><Entity> Customer"
+    "<VO> Gender" "1" --* "1" "<Root><Entity> Customer"
+    "<VO> VAT" "1" --* "1" "<Root><Entity> Customer"
+    "<Root><Entity> Order" "1" *-- "2" "<VO> Address"
+    "<VO> Date Time" "1" --* "1" "<Root><Entity> Order"
+    "<VO> State" "1" --* "1" "<Root><Entity> Order"
+    "<VO> Weight" "1" --* "1" "<Root><Entity> Order"
+    "<VO> Volume" "1" --* "1" "<Root><Entity> Order"
+    "<VO> Email" "1" --* "1" "<Root><Entity> Customer"
+    "<VO> Shipment" "1" --* "1" "<Root><Entity> Order"
+    "<VO> Payment Method" "1" --* "1" "<Root><Entity> Order"
+    "<VO> Description" "1" --* "1" "<Root><Entity> AGV"
+    "<VO> Weight" "1" --* "1" "<Root><Entity> AGV"
+    "<VO> Volume" "1" --* "1" "<Root><Entity> AGV"
+    "<VO> Model" "1" --* "1" "<Root><Entity> AGV"
+    "<VO> Autonomy" "1" --* "1" "<Root><Entity> AGV"
+    "<VO> Length" "1" --* "1" "<Root><Entity> Bin"
+    "<VO> Width" "1" --* "1" "<Root><Entity> Bin"
+    "<VO> Weight" "1" --* "1" "<Root><Entity> Bin"
+    "<VO> Description" "1" --* "1" "<Root><Entity> Category"
+    "<VO> Reference" -- "<Root><Entity> Product"
+    "<VO> Price" "1" --* "1" "<Root><Entity> Product"
+@enduml

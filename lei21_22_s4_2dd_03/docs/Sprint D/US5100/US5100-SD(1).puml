@@ -1,0 +1,40 @@
+@startuml
+title Create AGVMovementThread
+autonumber
+
+participant ":AGVOccupiedWatchDog" as watchDog
+participant "client:TcpAgvManagerClient" as client
+participant ":TcpAgvManagerServer" as server
+participant "menu:TcpAgvManagerThreadMenu" as menu
+participant "movement:AGVMovementThread" as movement
+
+
+->watchDog :onEvent()
+activate watchDog
+    watchDog -> client**:create()
+    watchDog -> client : run()
+    activate client
+    deactivate client
+
+
+    activate server
+        server -> menu** : create()
+        server -> menu : run()
+        note right: waits for an input.
+        activate menu
+        deactivate menu
+    deactivate server
+
+    watchDog -> client: writeByte(size,messageCode, agvId)
+    activate client
+    deactivate client
+
+    activate menu
+        menu ->movement** : create()
+        menu -> movement:run()
+        activate movement
+        deactivate movement
+    deactivate menu
+deactivate watchDog
+
+@enduml

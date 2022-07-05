@@ -1,0 +1,52 @@
+@startuml
+
+title SD - Define a new category of products
+
+    participant "SalesClerk" as sc
+	participant ":CreateCategoryUI" as ui
+	participant ":CreateCategoryController" as ctrl
+	participant "categoryBuilder:CategoryBuilder" as builder
+	participant "category:Category" as cat
+	participant ":PersistenceContext" as pc
+	participant "repositoryFactory:RepositoryFactory" as rf
+	participant "categoryRepository:CategoryRepository" as repo
+
+    activate sc
+    sc->ui:wants to define a new category
+        activate ui
+        ui-->sc:asks for category's information
+    sc->ui:inserts category information(code, description)
+        ui->ctrl:createCategory(code, description)
+            activate ctrl
+            ctrl-->builder**:create()
+            ctrl->builder:createCategory(code, description)
+                activate builder
+                builder-->cat**:create()
+                    activate cat
+                    cat-->builder:category
+                    deactivate cat
+                    builder-->ctrl:category
+                deactivate builder
+
+            ctrl->pc:repositories()
+                activate pc
+                pc->rf**:create()
+                    activate rf
+                    rf->repo**:create()
+                    rf-->pc:categoryRepository
+                    deactivate rf
+                pc-->ctrl:categoryRepository
+                deactivate pc
+
+            ctrl->rf:categories()
+                activate rf
+                deactivate rf
+
+            ctrl->repo:save(category)
+                activate repo
+                deactivate repo
+            deactivate ctrl
+        ui-->sc:informs the success of the operation
+        deactivate ui
+    deactivate sc
+@enduml

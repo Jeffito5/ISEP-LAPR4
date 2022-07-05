@@ -1,0 +1,142 @@
+@startuml
+title Answer Survey Class Diagram
+
+class AnswerSurveyUI
+
+class AnswerSurveyController{
+--Methods--
++ getAvailableSurveys(username)
++ getSections(surveyId)
++ getQuestions(sectionId)
++ exportSurvey(surveyId)
++ answerSurvey(directory)
++ cancelOperation()
+}
+note right: Diagram won't show Mappers and DTOs\nfor simplicity sake.
+class Customer{
+..Attributes..
+- id
+- username
+- email
+- phoneNumber
+}
+
+class Survey{
+..Attributes..
+- id
+- questionnaire
+}
+
+class Questionnaire{
+..Attributes..
+- id
+- sections
+}
+
+class Section{
+..Attributes..
+- id
+- questions
+}
+
+class Question{
+..Attributes..
+- id
+- text
+- obligatoriness
+--Methods--
++ isMandatory()
++ isOptional()
++ isConditional()
+}
+
+enum QuestionType{
+ FREE_TEXT
+    NUMERIC
+    SINGLE_CHOICE
+    SINGLE_CHOICE_WITH_INPUT_VALUE
+    MULTIPLE_CHOICE
+    MULTIPLE_CHOICE_WITH_INPUT_VALUE
+    SORTING
+    SCALING
+}
+
+enum Obligatoriness{
+    MANDATORY
+    OPTIONAL
+    CONDITIONAL
+}
+
+class Answer{
+..Attributes..
+- question
+- section
+- survey
+- text
+--Methods--
++Answer(survey,section,question,text)
++ toString()
+}
+
+class AnswerBuilder{
+..Attributes..
+- username
+- survey
+- section
+- question
+--Methods--
++ withUsername(username)
++ withSurvey(survey)
++ withSection(section)
++ withQuestion(question)
+}
+
+class PersistenceContext{
+--Methods--
++ repositories()
+}
+
+class RepositoryFactory{
+--Methods--
++ surveys()
+}
+
+class SurveyRepository{
+--Methods--
++ findSurveysForCustomer(username)
+}
+
+class AnswerValidator{
+--Methods--
++ validateSurveyAnswers(text)
+}
+
+AnswerSurveyUI --> AnswerSurveyController
+
+AnswerSurveyController ..> PersistenceContext
+AnswerSurveyController ..> Customer
+AnswerSurveyController ..> Survey
+AnswerSurveyController ..> AnswerBuilder
+AnswerSurveyController ..> AnswerValidator
+
+PersistenceContext ..> RepositoryFactory
+
+RepositoryFactory ..> SurveyRepository
+
+AnswerValidator ..> AnswerVerifierAdapter
+AnswerValidator ..> AnswerVerifierLexer
+AnswerValidator ..> AnswerVerifierParser
+
+AnswerVerifierAdapter ..> AnswerVerifierBaseVisitor
+
+AnswerBuilder ..> Answer
+
+Survey --> Questionnaire
+Questionnaire --> Section
+Section --> Question
+Section ..> Obligatoriness
+
+Question ..> QuestionType
+Question ..> Obligatoriness
+
+@enduml

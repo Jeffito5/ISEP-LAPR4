@@ -1,0 +1,96 @@
+@startuml
+class CreateCategoryUI
+class CreateCategoryController
+class PersistenceContext
+class RepositoryFactory
+class CategoryRepository
+class Category
+class InMemoryRepositoryFactory
+class Code
+class Description
+
+class CreateCategoryController {
+--Attributes--
+- repo
+--Methods--
++ CreateCategoryController()
++ createCategory(code, description)
+}
+
+class PersistenceContext {
++ repositories()
+}
+
+class Category {
+--Attributes--
++ code
++ description
+--Methods--
++ Category()
++ Category(builder)
+}
+
+class CategoryBuilder {
+--Attributes--
++ code
++ description
+--Methods--
++ withCode(code)
++ withDescription(description)
++ build()
+}
+
+interface RepositoryFactory {
++ categories()
++ categories(transactionalContext)
+}
+
+interface CategoryRepository {
++ add(entity)
+}
+
+class JpaCategoryRepository {
++ add(entity)
+}
+
+class JpaRepositoryFactory {
++ categories()
++ categories(transactionalContext)
+}
+
+class InMemoryRepositoryFactory {
++ categories()
++ categories(transactionalContext)
+}
+
+class Code{
+--Attributes--
++ code
+--Methods--
++ Code(code)
+}
+
+class Description{
+--Attributes--
++ description
+--Methods--
++ Description(description)
+}
+
+CreateCategoryUI ..> CreateCategoryController
+SalesClerk ..> CreateCategoryUI
+CategoryBuilder ..> Category
+CreateCategoryController ..> CategoryBuilder
+CreateCategoryController ..> PersistenceContext
+CreateCategoryController ..> CategoryRepository
+CreateCategoryController ..> RepositoryFactory
+
+RepositoryFactory ..> CategoryRepository
+PersistenceContext ..> JpaCategoryRepository
+PersistenceContext ..> JpaRepositoryFactory
+JpaCategoryRepository ..> InMemoryRepositoryFactory
+JpaRepositoryFactory ..> InMemoryRepositoryFactory
+
+Category "1" --> "1" Code
+Category "1" --> "1" Description
+@enduml

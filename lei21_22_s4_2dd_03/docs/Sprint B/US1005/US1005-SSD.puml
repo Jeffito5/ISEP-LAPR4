@@ -1,0 +1,19 @@
+@startuml
+autonumber
+
+actor "Sales Clerk" as SC
+
+SC -> System: asks to define a new category of products
+activate SC
+activate System
+
+System -> SC: asks the category's information
+deactivate System
+
+SC -> System: types the category's information
+activate System
+
+System --> SC: defines a new category of products
+deactivate System
+deactivate SC
+@enduml

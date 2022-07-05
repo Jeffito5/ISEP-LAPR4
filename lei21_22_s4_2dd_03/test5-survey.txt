@@ -1,0 +1,76 @@
+Survey 4:
+
+Questionnaire 2: Customer's Hobbies
+Welcome Message: Welcome to the Questionnaire. Let us know your opinion!
+
+List of Sections:
+Section 2:
+(MANDATORY) - Camping Equipment
+Description: This sections addresses the topic of camping equipment.
+
+List of Questions:
+Question:
+(MANDATORY) - 12. How many time do you go camping per year?
+Instructions: Type a value.
+
+
+A:a).
+
+Question:
+(OPTIONAL) - 13. Does your camping equipment get deteriorated by the elements easily?
+Instructions: Choose an Option.
+
+Options:
+a) Yes!
+b) No.
+
+A:
+
+Question:
+(OPTIONAL) - 14. Does your camping equipment get deteriorated by the elements easily?
+Instructions: Choose an Option.
+
+Options:
+a) Yes!
+b) No.
+
+A:
+
+Question:
+(OPTIONAL) - 15. What products should we add?
+Instructions: Write freely.
+
+
+A:
+
+Question:
+(OPTIONAL) - 16. Rank these products.
+Instructions: Rank these products in order.
+
+Options:
+a) Swimming Equipment.
+b) Hair Products.
+c) Sports Shirts.
+
+A:
+
+Question:
+(MANDATORY) - 17. How many time do you go swimming per year?
+Instructions: Type a value.
+
+
+A:
+
+Question:
+(OPTIONAL) - 18. Does your swimming equipment get deteriorated by the elements easily?
+Instructions: Choose an Option.
+
+Options:
+a) Yes!
+b) No.
+
+A:
+
+
+
+Questionnaire Final Message: Thank you for your cooperation!

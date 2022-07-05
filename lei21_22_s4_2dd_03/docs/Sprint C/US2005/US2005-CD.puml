@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ServerUI{}
+
+class ServerController{
+--Methods--
++ createServer()
++ getAgvs()
+}
+
+class Server{
+--Methods--
++ getIpAddress()
++ run()
++getAgvInfo()
++incAccessesCounter()
+}
+
+class HttpAjaxRequest{
+--Methods--
++ HttpAjaxRequest(socket,baseFolder)
++ run()
+}
+
+class HTTPMessage{
+--Methods--
++ HTTPMessage(inputStream)
++ HTTPMessage()
++ send(outputStream)
++ hasContent()
+..Static Methods..
++ writeHeaderLine(inputStream)
++ readHeadertLine(inputStream)
+}
+
+abstract JPARepository{
+--Methods--
++ findAll()
+}
+
+
+ServerUI ..> ServerController
+ServerController ..> JPARepository
+ServerController ..> Server
+Server ..> HttpAjaxRequest
+HttpAjaxRequest ..> HTTPMessage
+
+
+
+@enduml

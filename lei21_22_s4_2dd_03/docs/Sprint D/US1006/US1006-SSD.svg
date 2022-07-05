@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="260px" preserveAspectRatio="none" style="width:519px;height:260px;background:#FFFFFF;" version="1.1" viewBox="0 0 519 260" width="519px" zoomAndPan="magnify"><defs><filter height="300%" id="fzhmblhc3tg5o" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="155.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="43" y="51.6094"/><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="472" y="90.3125"/><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="46.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="472" y="151.0156"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="48" x2="48" y1="41.6094" y2="215.7188"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="477" x2="477" y1="41.6094" y2="215.7188"/><rect fill="#FEFECE" filter="url(#fzhmblhc3tg5o)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="82" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="12" y="26.5332">SalesClerk</text><rect fill="#FEFECE" filter="url(#fzhmblhc3tg5o)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="82" x="5" y="214.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="12" y="236.252">SalesClerk</text><rect fill="#FEFECE" filter="url(#fzhmblhc3tg5o)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="445" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="452" y="26.5332">System</text><rect fill="#FEFECE" filter="url(#fzhmblhc3tg5o)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="445" y="214.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="452" y="236.252">System</text><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="155.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="43" y="51.6094"/><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="472" y="90.3125"/><rect fill="#FFFFFF" filter="url(#fzhmblhc3tg5o)" height="46.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="472" y="151.0156"/><polygon fill="#A80036" points="460,86.3125,470,90.3125,460,94.3125,464,90.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53" x2="466" y1="90.3125" y2="90.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="60" y="69.1045">1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="223" x="75" y="69.1045">Starts the process of viewing the list of</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="326" x="64" y="85.4561">orders that have already been received by the customers</text><polygon fill="#A80036" points="64,116.6641,54,120.6641,64,124.6641,60,120.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58" x2="476" y1="120.6641" y2="120.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="18" x="70" y="115.8076">1.1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="373" x="92" y="115.8076">Asks the Sales Clerk to choose the order that has been received</text><polygon fill="#A80036" points="460,147.0156,470,151.0156,460,155.0156,464,151.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="53" x2="466" y1="151.0156" y2="151.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="11" x="60" y="146.1592">2.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="75" y="146.1592">Selects the order</text><polygon fill="#A80036" points="465,193.7188,475,197.7188,465,201.7188,469,197.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="53" x2="471" y1="197.7188" y2="197.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="22" x="60" y="176.5107">2.1.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="280" x="86" y="176.5107">Changes the order's status, shows the customer</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="364" x="64" y="192.8623">and informs the Sales Clerk about the success of the operation</text><!--MD5=[10aeb41bfcd74a4985ade156212eb42a]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate SalesClerk
+SalesClerk -> System: **1.** Starts the process of viewing the list of \n orders that have already been received by the customers
+activate System
+System - -> SalesClerk: **1.1** Asks the Sales Clerk to choose the order that has been received
+deactivate System
+
+SalesClerk -> System: **2.** Selects the order
+activate System
+System <- - SalesClerk: **2.1.** Changes the order's status, shows the customer\n and informs the Sales Clerk about the success of the operation
+deactivate System
+
+@enduml
+
+@startuml
+
+activate SalesClerk
+SalesClerk -> System: **1.** Starts the process of viewing the list of \n orders that have already been received by the customers
+activate System
+System - -> SalesClerk: **1.1** Asks the Sales Clerk to choose the order that has been received
+deactivate System
+
+SalesClerk -> System: **2.** Selects the order
+activate System
+System <- - SalesClerk: **2.1.** Changes the order's status, shows the customer\n and informs the Sales Clerk about the success of the operation
+deactivate System
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+activate SalesClerk
+SalesClerk -> System: **1.** Starts the process of viewing the products catalog
+activate System
+System --> SalesClerk: **1.1** Asks the Sales Clerk if he wants to see the catalog or a product of the catalog
+deactivate System
+
+SalesClerk -> System: **2.** Selects what he wants to see
+activate System
+System <-- SalesClerk: **2.1.** Displays the information and informs the Sales Clerk about the success of the operation
+deactivate System
+
+@enduml
